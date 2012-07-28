@@ -1,0 +1,1004 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Swag : Give your handlebars.js templates some swag son!" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Swag</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/elving/swag">View on GitHub</a>
+
+          <h1 id="project_title">Swag</h1>
+          <h2 id="project_tagline">Give your handlebars.js templates some swag son!</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/elving/swag/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/elving/swag/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>Swag</h1>
+
+<p>Swag is a growing collection of helpers for <a href="https://github.com/wycats/handlebars.js/">Handlebars.js</a>.</p>
+
+<h2>Usage</h2>
+
+<pre><code>&lt;script src="../path_to/handlebars.js"&gt;&lt;/script&gt;
+&lt;script src="../path_to/swag.js"&gt;&lt;/script&gt;    
+</code></pre>
+
+<h2>Strings</h2>
+
+<h4>lowercase</h4>
+
+<p>Turns a string to lowercase.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{lowercase "BENDER SHOULD NOT BE ALLOWED ON TV"}}
+
+bender should not be allowed on tv
+</code></pre>
+
+<h4>uppercase</h4>
+
+<p>Turns a string to uppercase. Opposite of <code>{{lowercase}}</code>.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{uppercase "bender should not be allowed on tv"}}
+
+BENDER SHOULD NOT BE ALLOWED ON TV
+</code></pre>
+
+<h4>capitalizeFirst</h4>
+
+<p>Capitalizes the firs word in a string.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{capitalizeFirst "bender should not be allowed on TV"}}
+
+Bender should not be allowed on TV
+</code></pre>
+
+<h4>capitalizeEach</h4>
+
+<p>Capitalizes each word in a string.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{capitalizeEach "bender should NOT be allowed on TV"}}
+
+Bender Should NOT Be Allowed On TV
+</code></pre>
+
+<h4>titleize</h4>
+
+<p>Capitalizes all words within a string. Taken from the templating library <a href="https://github.com/jeremyruppel/walrus">Walrus</a> by <a href="https://github.com/jeremyruppel">Jeremy Ruppel</a>.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{titleize "Bender-should-Not-be-allowed_on_Tv."}}
+
+Bender Should Not Be Allowed On Tv.
+</code></pre>
+
+<h4>sentence</h4>
+
+<p>Capitalizes the first word of each sentence in a string and converts the rest of the sentence to lowercase.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{capitalizeEach "bender should NOT be allowed on TV. fry SHOULD be allowed on TV."}}
+
+Bender should not be allowed on tv. Fry should be allowed on tv.
+</code></pre>
+
+<h4>reverse</h4>
+
+<p>Reverses a string.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{reverse "bender should NOT be allowed on TV."}}
+
+.VT no dewolla eb TON dluohs redneb
+</code></pre>
+
+<h4>truncate</h4>
+
+<p>Truncates a string given a specified <code>length</code>, providing a custom string to denote an <code>omission</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>length [int] - The number of characters to keep (Required)
+omission [string] - A string to denote an omission (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>{{truncate "Bender should not be allowed on tv." 31 "..."}}
+
+Bender should not be allowed...
+</code></pre>
+
+<h4>center</h4>
+
+<p>Centers a string using non-breaking spaces.</p>
+
+<p>Parameters:</p>
+
+<pre><code>spaces [int] - The number of spaces. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>{{center "Bender should not be allowed on tv." 10}}
+
+          Bender should not be allowed on tv.
+</code></pre>
+
+<h2>Collections</h2>
+
+<h4>first</h4>
+
+<p>Returns the first item in a collection.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{first collection}}
+
+Amy Wong
+</code></pre>
+
+<h4>withFirst</h4>
+
+<p>Use the first item in a collection inside a block.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{#withFirst collection}}
+    &lt;p&gt;{{this}} is smart.&lt;/p&gt;
+{{/withFirst}}
+
+&lt;p&gt;Amy Wong is smart.&lt;/p&gt;
+</code></pre>
+
+<h4>last</h4>
+
+<p>Returns the last item in a collection. Opposite of <code>first</code>.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{last collection}}
+
+Scruffy
+</code></pre>
+
+<h4>withLast</h4>
+
+<p>Use the last item in a collection inside a block. Opposite of <code>withFirst</code>.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{#withLast collection}}
+    &lt;p&gt;{{this}} is lazy.&lt;/p&gt;
+{{/withLast}}
+
+&lt;p&gt;Scruffy is lazy.&lt;/p&gt;
+</code></pre>
+
+<h4>after</h4>
+
+<p>Returns all of the items in the collection after the specified count.</p>
+
+<p>Parameters:</p>
+
+<pre><code>count [int] - How many items to omit from the beginning. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{after collection 5}}
+
+Leela, Professor Farnsworth, Scruffy
+</code></pre>
+
+<h4>withAfter</h4>
+
+<p>Use all of the items in the collection after the specified count inside a block.</p>
+
+<p>Parameters:</p>
+
+<pre><code>count [int] - How many items to omit from the beginning. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{#withAfter collection 5}}
+    {{titleize this}}
+{{/withAfter}}
+
+Leela Professor Farnsworth Scruffy
+</code></pre>
+
+<h4>before</h4>
+
+<p>Returns all of the items in the collection before the specified count. Opposite of <code>after</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>count [int] - How many items to omit from the end. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{before collection 5}}
+
+Amy Wong, Bender, Dr. Zoidberg
+</code></pre>
+
+<h4>withBefore</h4>
+
+<p>Use all of the items in the collection before the specified count inside a block. Opposite of <code>withAfter</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>count [int] - How many items to omit from the end. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{#withBefore collection 5}}
+    {{reverse this}}
+{{/withBefore}}
+
+gnoW ymA redneB grebdioZ .rD
+</code></pre>
+
+<h4>join</h4>
+
+<p>Joins all elements of a collection into a string using a separator if specified.</p>
+
+<p>Parameters:</p>
+
+<pre><code>separator [string] - A string to use as a separator between the items. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
+
+{{join collection " &amp; "}}
+
+Amy Wong &amp; Bender &amp; Dr. Zoidberg &amp; Fry &amp; Hermes Conrad &amp; Leela &amp; Professor Farnsworth &amp; Scruffy
+</code></pre>
+
+<h4>sort</h4>
+
+<p>Returns the collection sorted.</p>
+
+<p>Parameters:</p>
+
+<pre><code>field [string] - String name of the field or property to sort by. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Dr. Zoidberg', 'Fry', 'Amy Wong', 'Professor Farnsworth', 'Bender', 'Hermes Conrad', 'Leela', 'Scruffy']
+
+{{sort collection}}
+
+Amy Wong, Bender, Dr. Zoidberg, Fry, Hermes Conrad, Leela, Professor Farnsworth, Scruffy
+</code></pre>
+
+<h4>withSort</h4>
+
+<p>Uses the sorted collection inside the block.</p>
+
+<p>Parameters:</p>
+
+<pre><code>field [string] - String name of the field or property to sort by. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = [
+        name: 'Leela'
+        deliveries: 8021
+    ,
+        name: 'Bender'
+        deliveries: 239
+    ,
+        name: 'Fry'
+        deliveries: -12
+]
+
+{{#withSort collection "deliveries"}}
+    {{name}}: {{deliveries}} &lt;br&gt;
+{{/withSort}}
+
+Fry: -12
+Bender: 239
+Leela: 8021
+</code></pre>
+
+<h4>length</h4>
+
+<p>Returns the length of the collection.</p>
+
+<p>Parameters: none.</p>
+
+<pre><code>collection = ['Dr. Zoidberg', 'Fry', 'Amy Wong', 'Professor Farnsworth', 'Bender', 'Hermes Conrad', 'Leela', 'Scruffy']
+
+{{length collection}}
+
+8
+</code></pre>
+
+<h4>lengthEqual</h4>
+
+<p>Conditionally render a block based on the length of a collection.</p>
+
+<p>Parameters:</p>
+
+<pre><code>length [int] - The value to test against. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = [
+        name: 'Leela'
+        deliveries: 8021
+    ,
+        name: 'Bender'
+        deliveries: 239
+    ,
+        name: 'Fry'
+        deliveries: -12
+]
+
+
+{{#lengthEqual collection 3}}
+    There are 3 people in Planet Express.
+{{else}}
+    This is not Planet Express.
+{{/lengthEqual}}
+
+There are 3 people in Planet Express.
+</code></pre>
+
+<h3>empty</h3>
+
+<p>Conditionally render a block if the collection is empty.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = []
+
+{{#empty collection}}
+    Good news everyone!
+{{else}}
+    Bad news everyone!
+{{/empty}}
+
+Good news everyone!
+</code></pre>
+
+<h3>any</h3>
+
+<p>Conditionally render a block if the collection isn't empty. Opposite of <code>empty</code></p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Professor Farnsworth']
+
+{{#any collection}}
+    Good news everyone!
+{{else}}
+    Bad news everyone!
+{{/any}}
+
+Good news everyone!
+</code></pre>
+
+<h3>inArray</h3>
+
+<p>Conditionally render a block if a specified value is in the collection.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - A value to test against. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Professor Farnsworth', 'Fry', 'Bender']
+
+{{#inArray collection "Fry"}}
+    I'm walking on sunshine!
+{{else}}
+    I'm walking on darkness.
+{{/any}}
+
+I'm walking on sunshine!
+</code></pre>
+
+<h2>Math</h2>
+
+<h4>add</h4>
+
+<p>Returns the sum of two numbers.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [int] - The number to add to the expression. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5
+
+{{add value 5}}
+
+10
+</code></pre>
+
+<h4>subtract</h4>
+
+<p>Returns the difference of two numbers. Opposite of <code>add</code></p>
+
+<p>Parameters:</p>
+
+<pre><code>value [int] - The number to subtract from the expression. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5
+
+{{subtract value 5}}
+
+0
+</code></pre>
+
+<h4>divide</h4>
+
+<p>Returns the division of two numbers.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [int] - The number to divide the expression. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5
+
+{{divide value 5}}
+
+1
+</code></pre>
+
+<h4>multiply</h4>
+
+<p>Returns the multiplication of two numbers.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [int] - The number to multiply the expression. (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5
+
+{{multiply value 5}}
+
+25
+</code></pre>
+
+<h4>floor</h4>
+
+<p>Returns the value rounded down to the nearest integer.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = 5.6
+
+{{floor value}}
+
+5
+</code></pre>
+
+<h4>ceil</h4>
+
+<p>Returns the value rounded up to the nearest integer.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = 5.6
+
+{{ceil value}}
+
+6
+</code></pre>
+
+<h4>round</h4>
+
+<p>Returns the value rounded to the nearest integer.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = 5.69
+
+{{round value}}
+
+6
+</code></pre>
+
+<h2>Comparisons</h2>
+
+<h4>equal</h4>
+
+<p>Conditionally render a block if the condition is true.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#equal number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/equal}}
+
+Kiss my shiny metal ass!
+</code></pre>
+
+<h4>notEqual</h4>
+
+<p>Conditionally render a block if the condition is false. Opposite of <code>equal</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#notEqual number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/notEqual}}
+
+Never mind :(
+</code></pre>
+
+<h4>gt</h4>
+
+<p>Conditionally render a block if the value is greater than a given number.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#gt number 8}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/gt}}
+
+Never mind :(
+</code></pre>
+
+<h4>gte</h4>
+
+<p>Conditionally render a block if the value is greater or equal than a given number.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#gte number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/gte}}
+
+Kiss my shiny metal ass!
+</code></pre>
+
+<h4>lt</h4>
+
+<p>Conditionally render a block if the value is less than a given number. Opposite of <code>gt</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#lt number 3}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/lt}}
+
+Never mind :(
+</code></pre>
+
+<h4>lte</h4>
+
+<p>Conditionally render a block if the value is less or equal than a given number. Opposite of <code>gte</code>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>value [string|int] - the value to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>number = 5
+
+{{#lte number 5}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/lte}}
+
+Kiss my shiny metal ass!
+</code></pre>
+
+<h2>Dates</h2>
+
+<h4>formatDate</h4>
+
+<p>Formats a date into a string given a format. Accepts any value that can be passed to <code>new Date()</code>. This helper is a port of the <a href="http://https://github.com/michaelbaldry/formatDate-js">formatDate-js</a> library by <a href="https://github.com/michaelbaldry">Michael Baldry</a>.</p>
+
+<p>Parameters:</p>
+
+<pre><code>format [string] - The format string, according to these tokens: (http://www.ruby-doc.org/core-1.9.3/Time.html#method-i-strftime) (Required)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>date = new Date()
+
+{{formatDate date "%m/%d/%Y"}}
+{{formatDate date "%I:%M%p"}}
+{{formatDate date "%F"}}
+{{formatDate date "%Y%m%dT%H%M%S%z"}}
+
+07/26/2012
+11:38PM
+2012-07-26
+20120726T233805-0004
+</code></pre>
+
+<h4>now</h4>
+
+<p>Returns the current date.</p>
+
+<p>Parameters:</p>
+
+<pre><code>format [string] - The format string, according to these tokens: http://www.ruby-doc.org/core-1.9.3/Time.html#method-i-strftime (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>{{now}}
+{{now "%m/%d/%Y"}}
+
+Thu Jul 26 2012 23:41:02 GMT-0400 (AST)
+07/26/2012
+</code></pre>
+
+<h4>timeago</h4>
+
+<p>Returns a human-readable time phrase from the given date.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>date = 'Thu Jul 22 2012 23:41:02 GMT-0400 (AST)'
+
+{{timeago date}}
+
+4 days ago
+</code></pre>
+
+<h2>Inflections</h2>
+
+<h4>inflect</h4>
+
+<p>Returns the plural or singular form of a word based on a count.</p>
+
+<p>Parameters:</p>
+
+<pre><code>singular [string] - The singular form of the word. (Required)
+plural [string] - The plural form of the word. (Required)
+include [boolean] - whether or not to include the count before the word. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>enemies = 0
+friends = 1
+
+{{inflect enemies "enemy" "enemies"}}
+{{inflect friends "friend" "friends" true}}
+
+enemies
+1 friend
+</code></pre>
+
+<h4>ordinalize</h4>
+
+<p>Turns a number into an ordinal string. Taken from the templating library <a href="https://github.com/jeremyruppel/walrus">Walrus</a> by <a href="https://github.com/jeremyruppel">Jeremy Ruppel</a>.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{ordinalize 3}}
+{{ordinalize 1}}
+{{ordinalize 22}}
+
+3rd
+1st
+22nd
+</code></pre>
+
+<h2>HTML</h2>
+
+<h4>ul</h4>
+
+<p>Creates an unordered list.</p>
+
+<p>Parameters:</p>
+
+<pre><code>hash [html attributes] - HTML attributes to use on the ul element. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>collection = [
+        name: 'Leela'
+        deliveries: 8021
+    ,
+        name: 'Bender'
+        deliveries: 239
+    ,
+        name: 'Fry'
+        deliveries: 1
+]
+
+{{#ul collection class="deliveries-list"}}
+    {{name}} - {{inflect deliveries "delivery" "deliveries" true}}
+{{/ul}}
+
+&lt;ul class="deliveries-list"&gt;
+    &lt;li&gt;
+        Leela - 8021 deliveries
+    &lt;/li&gt;
+    &lt;li&gt;
+        Bender - 239 deliveries
+    &lt;/li&gt;
+    &lt;li&gt;
+        Fry - 1 delivery
+    &lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+<h4>ol</h4>
+
+<p>Same as the <code>ul</code> helper but creates and ordered list.</p>
+
+<h4>br</h4>
+
+<p>Returns <code>&lt;br&gt;</code> tags based on a count.</p>
+
+<p>Parameters:</p>
+
+<pre><code>count [int] - The number of `br` elements to render. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>{{br 5}}
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+</code></pre>
+
+<h2>Logging</h2>
+
+<h4>log</h4>
+
+<p>Simple console.log()</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>{{log "Hi console :)"}}
+
+Hi console :)
+</code></pre>
+
+<h4>debug</h4>
+
+<p>Simple console.debug() that shows the current context.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = [
+        name: 'Leela'
+        deliveries: 8021
+    ,
+        name: 'Bender'
+        deliveries: 239
+    ,
+        name: 'Fry'
+        deliveries: 1
+]
+
+{{#withFirst collection}}
+    {{debug name}}
+{{/withFirst}}
+
+Context: { deliveries: 8021, name: "Leela" }
+Value: Leela
+-----------------------------------------------
+</code></pre>
+
+<h2>Miscellaneous</h2>
+
+<h4>default</h4>
+
+<p>Provides a default or fallback value if a value doesn't exist.</p>
+
+<p>Parameters:</p>
+
+<pre><code>defaultValue [string|int] - The default value to use.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>title = ''
+
+{{default title "Not title available."}}
+
+Not title available.
+</code></pre>
+
+<h4>partial</h4>
+
+<p>Provides an easy way to register and use partials inside your templates. This helper only works if you define your templates as common.js modules, since it uses the common.js <code>require</code> function to find and register your templates with <code>Handlebars.registerPartial</code>. It was created with <a href="http://brunch.io">brunch</a> in mind (which I use a lot), because brunch automatically wraps your scripts and templates in common.js modules to use in the browser.</p>
+
+<p>Parameters:</p>
+
+<pre><code>name [string] - The name or path of the file in which your template is define. You can tell swag where your templates folder is by overriding Swag.Config.partialsPath. (Required)
+
+data [int|string|collection] - The data you want to use inside the partial. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code># path to your templates from where yo override Swag.Config.partialsPath
+Swag.Config.partialsPath = '../views/templates/'
+
+collection = ['Professor Farnsworth', 'Fry', 'Bender']
+
+# Your Partial (planet_express.hbs)
+{{sort this}}
+
+# Your template
+&lt;p&gt;
+    {{partial "planet_express" collection}}
+&lt;/p&gt;
+
+&lt;p&gt;Bender, Fry, Professor Farnsworth&lt;/p&gt;
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Swag maintained by <a href="https://github.com/elving">elving</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
