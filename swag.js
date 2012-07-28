@@ -1,3 +1,9 @@
+/*
+ * Swag v0.0.1 <http://elving.github.com/swag/>
+ * Copyright 2012 Elving Rodriguez <http://elving.me/>
+ * Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
+ */
+
 (function() {
   var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
