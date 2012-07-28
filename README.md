@@ -4,18 +4,6 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
 
 ## Usage
 
-#### In node.js
-    
-    var handlebars = require('handlebars');
-    var Swag = require('swag');
-    
-    Swag.Config.partialsPath = './path_to/handlebars/partials';
-    
-    // Compile you templates...
-    // Serve them to the browser...
-    
-#### In the browser
-
     <script src="../path_to/handlebars.js"></script>
     <script src="../path_to/swag.js"></script>    
 
