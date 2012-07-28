@@ -1,0 +1,28 @@
+{
+    "name": "swag",
+    "version": "0.0.1",
+    "author": "Elving Rodriguez <elving.pr@gmail.com>",
+    "description": "Give your handlebars.js templates some swag son!",
+    "main": "./swag.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/elving/swag.git"
+    },
+    "keywords": [
+        "swag",
+        "handlebars",
+        "templates",
+        "helpers",
+        "utilities"
+    ],
+    "dependencies" : {
+        "coffee-script":  ">=1.3.1"
+    },
+    "licenses": [{
+        "type": "MIT",
+        "url": "https://raw.github.com/elving/swag/master/LICENSE"
+    }],
+    "engine": {
+        "node": ">=0.6.17"
+    }
+}
