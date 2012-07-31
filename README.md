@@ -77,7 +77,7 @@ Parameters: none.
 
 Usage:
 
-    {{capitalizeEach "bender should NOT be allowed on TV. fry SHOULD be allowed on TV."}}
+    {{sentence "bender should NOT be allowed on TV. fry SHOULD be allowed on TV."}}
 
     Bender should not be allowed on tv. Fry should be allowed on tv.
 
