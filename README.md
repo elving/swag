@@ -862,7 +862,8 @@ Parameters:
 
 Usage:
 
-    # path to your templates from where yo override Swag.Config.partialsPath
+    # Path to your templates from where yo override Swag.Config.partialsPath
+    # The path must finish with a foward slash '/'
     Swag.Config.partialsPath = '../views/templates/'
 
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
