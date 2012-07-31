@@ -603,7 +603,7 @@
     });
     return Handlebars.registerHelper('partial', function(name, data) {
       var partial;
-      partial = name + exports.Config.partialsPath;
+      partial = exports.Config.partialsPath + name;
       data = Utils.isUndefined(data) ? {} : data;
       if (Handlebars.partials[name] == null) {
         Handlebars.registerPartial(name, require(partial));
