@@ -410,6 +410,20 @@ Usage:
     {{/any}}
 
     I'm walking on sunshine!
+     
+### iter
+
+Current implementation of the default Handlebars loop helper {{#each}} adding a few more parameters to the loop context, i (0-based index) and iPlus1(1-based index).
+
+Parameters: none.
+
+Usage:
+
+    collection = ['Professor Farnsworth', 'Fry', 'Bender']
+
+    {{#iter collection}}
+        {{ i }} or {{ iPlus1 }} - {{ this }}
+    {{/iter}}
 
 ## Math
 
