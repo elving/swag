@@ -77,22 +77,16 @@ Handlebars.registerHelper 'inArray', (array, value, options) ->
     if array.indexOf(value) isnt -1  then options.fn(@) else options.inverse(@)
 
 Handlebars.registerHelper 'eachIndex', (context, options) ->
-  fn = options.fn
-  inverse = options.inverse
-  ret = ""
-  data = undefined
-  data = Handlebars.createFrame(options.data)  if options.data
-  if context and context.length > 0
-    i = 0
-    j = context.length
+    ret = ''
+    data = Handlebars.createFrame(options.data) if options.data?
+    if context and context.length > 0
+        i = 0
+        j = context.length
 
-    while i < j
-      data.index = i  if data
-      ret = ret + fn(_.extend({}, context[i],
-        index: i
-        nextIndex: i + 1
-      ))
-      i++
-  else
-    ret = inverse(this)
-  ret
+        while i < j
+            data.index = i if data
+            ret = ret + options.fn(_.extend({}, context[i], index: i))
+            i++
+    else
+        ret = options.inverse(@)
+    ret
