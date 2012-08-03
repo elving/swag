@@ -411,9 +411,9 @@ Usage:
 
     I'm walking on sunshine!
      
-### iter
+### eachIndex
 
-Current implementation of the default Handlebars loop helper {{#each}} adding a few more parameters to the loop context, i (0-based index) and iPlus1(1-based index).
+Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.
 
 Parameters: none.
 
@@ -421,9 +421,9 @@ Usage:
 
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
 
-    {{#iter collection}}
-        {{ i }} or {{ iPlus1 }} - {{ this }}
-    {{/iter}}
+    {{#eachIndex collection}}
+        {{ index }} - {{ this }}
+    {{/eachIndex}}
 
 ## Math
 
