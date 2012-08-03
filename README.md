@@ -410,6 +410,20 @@ Usage:
     {{/any}}
 
     I'm walking on sunshine!
+     
+### eachIndex
+
+Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.
+
+Parameters: none.
+
+Usage:
+
+    collection = ['Professor Farnsworth', 'Fry', 'Bender']
+
+    {{#eachIndex collection}}
+        {{ index }} - {{ this }}
+    {{/eachIndex}}
 
 ## Math
 
