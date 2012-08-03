@@ -5,7 +5,7 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
 ## Usage
 
     <script src="../path_to/handlebars.js"></script>
-    <script src="../path_to/swag.js"></script>    
+    <script src="../path_to/swag.js"></script>
 
 ## Strings
 
@@ -410,7 +410,7 @@ Usage:
     {{/any}}
 
     I'm walking on sunshine!
-     
+
 ### eachIndex
 
 Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.
@@ -422,8 +422,10 @@ Usage:
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
 
     {{#eachIndex collection}}
-        {{ index }} - {{ this }}
+        {{this}} is {{index}}
     {{/eachIndex}}
+
+    Professor Farnsworth is 0, Fry is 1, Bender is 2
 
 ## Math
 
