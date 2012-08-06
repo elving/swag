@@ -85,7 +85,8 @@ Handlebars.registerHelper 'eachIndex', (context, options) ->
 
         while i < j
             data.index = i if data
-            ret = ret + options.fn(_.extend({}, context[i], index: i))
+            context[i].index = i
+            ret = ret + options.fn context[i]
             i++
     else
         ret = options.inverse(@)
