@@ -11,6 +11,7 @@ task 'build', ->
         'src/swag.strings.coffee'
         'src/swag.collections.coffee'
         'src/swag.math.coffee'
+        'src/swag.numbers.coffee'
         'src/swag.comparisons.coffee'
         'src/swag.dates.coffee'
         'src/swag.inflections.coffee'

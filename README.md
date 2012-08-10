@@ -535,6 +535,101 @@ Usage:
 
     6
 
+## Numbers
+
+#### toFixed
+
+Returns exactly `digits` after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.
+
+Parameters:
+
+    digits [int] - The number of digits to appear after the decimal point. (Optional)
+
+Usage:
+
+    value = 5.53231
+
+    {{toFixed value 3}}
+
+    5.532
+
+#### toPrecision
+
+Returns the number in fixed-point or exponential notation rounded to precision significant digits.
+
+Parameters:
+
+    digits [int] - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)
+
+Usage:
+
+    value = 555.322
+
+    {{toPrecision value 4}}
+
+    555.3
+
+
+#### toExponential
+
+Returns the number in exponential notation with one digit before the decimal point, rounded to `fractions` digits after the decimal point.
+
+Parameters:
+
+    fractions [int] - An integer specifying the number of digits after the decimal point. (Optional)
+
+Usage:
+
+    value = 5
+
+    {{toExponential value 5}}
+
+    5.00000e+0
+
+#### toInt
+
+Returns an integer.
+
+Parameters: none.
+
+Usage:
+
+    value = '22.2abc'
+
+    {{toInt value}}
+
+    22
+
+#### toFloat
+
+Returns a floating point number.
+
+Parameters: none.
+
+Usage:
+
+    value = '22.2abc'
+
+    {{toFloat value}}
+
+    22.2
+
+#### addCommas
+
+Adds commas to a number.
+
+Parameters: none.
+
+Usage:
+
+    value = 2222222
+
+    {{addCommas value}}
+
+    2,222,222
+
+####
+
 ## Comparisons
 
 #### equal
