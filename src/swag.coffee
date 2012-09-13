@@ -4,5 +4,8 @@
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
 
-Swag = window?.Swag = {}
-module?.exports = Swag = {}
+if window?
+  window.Swag = Swag = {}
+if module?
+  Handlebars = require 'handlebars'
+  module.exports = Swag = {}
