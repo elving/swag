@@ -6,6 +6,6 @@
 
 if window?
   window.Swag = Swag = {}
-  if module?
-    Handlebars = require 'handlebars'
-    module.exports = Swag = {}
+if module?
+  Handlebars = require 'handlebars'
+  module.exports = Swag = {}
