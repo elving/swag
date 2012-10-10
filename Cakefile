@@ -1,5 +1,7 @@
-fs = require 'fs'
+fs     = require 'fs'
+path   = require 'path'
 coffee = require 'coffee-script'
+Mocha  = require 'mocha'
 { parser: jsp, uglify: pro } = require 'uglify-js'
 
 task 'build', ->
@@ -23,5 +25,14 @@ task 'build', ->
     code = pro.gen_code pro.ast_squeeze pro.ast_mangle jsp.parse code
     fs.writeFile 'lib/swag.js', code
 
+task 'test', ->
+    mocha = new Mocha(
+        ui: 'bdd'
+        reporter: 'spec'
+        globals: ['--compilers coffee:coffee-script']
+    )
 
+    fs.readdirSync('test').forEach (file) ->
+        mocha.addFile path.join('test', file)
 
+    mocha.run()
