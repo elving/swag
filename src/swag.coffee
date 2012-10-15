@@ -5,6 +5,7 @@
 ###
 
 if window?
+  Handlebars = window.Handlebars
   window.Swag = Swag = {}
 if module?
   Handlebars = require 'handlebars'
