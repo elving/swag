@@ -52,14 +52,17 @@ Handlebars.registerHelper 'sort', (array, field) ->
         array.sort (a, b) -> a[field] > b[field]
 
 Handlebars.registerHelper 'withSort', (array, field, options) ->
+    result = ''
+
     if Utils.isUndefined field
         options = field
-        options.fn array.sort()
+        array = array.sort()
+        result += options.fn(item) for item in array
     else
         array = array.sort (a, b) -> a[field] > b[field]
-        result = ''
-        for item of array then result += options.fn array[item]
-        result
+        result += options.fn(array[item]) for item of array
+
+    result
 
 Handlebars.registerHelper 'length', (array) ->
     array.length
