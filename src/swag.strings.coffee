@@ -12,7 +12,7 @@ Handlebars.registerHelper 'capitalizeEach', (str) ->
 
 Handlebars.registerHelper 'titleize', (str) ->
     title = str.replace /[ \-_]+/g, ' '
-    words = Utils.trim(title.replace /([A-Z])/g, " $&").split ' '
+    words = title.match(/\w+/g)
     capitalize = (word) -> word.charAt(0).toUpperCase() + word.slice(1)
     (capitalize word for word in words).join ' '
 
