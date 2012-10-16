@@ -5,8 +5,8 @@ Mocha  = require 'mocha'
 { parser: jsp, uglify: pro } = require 'uglify-js'
 
 task 'build', ->
-    code = ''
-    [
+    code  = ''
+    files = [
         'src/swag.coffee'
         'src/swag.config.coffee'
         'src/swag.utils.coffee'
@@ -20,19 +20,26 @@ task 'build', ->
         'src/swag.html.coffee'
         'src/swag.logging.coffee'
         'src/swag.miscellaneous.coffee'
-    ].forEach (file) -> code += fs.readFileSync(file)
-    code = coffee.compile code
-    code = pro.gen_code pro.ast_squeeze pro.ast_mangle jsp.parse code
+    ]
+
+    files.forEach (file) ->
+        code += fs.readFileSync(file)
+
+    code = coffee.compile(code)
+    # code = pro.gen_code(
+    #     pro.ast_squeeze(
+    #         pro.ast_mangle(jsp.parse code)
+    #     )
+    # )
+
     fs.writeFile 'lib/swag.js', code
 
-task 'test', ->
+task 'test:collections', ->
     mocha = new Mocha(
         ui: 'bdd'
         reporter: 'spec'
-        globals: ['--compilers coffee:coffee-script']
     )
 
-    fs.readdirSync('test').forEach (file) ->
-        mocha.addFile path.join('test', file)
+    mocha.addFile('test/collections_test')
 
     mocha.run()
