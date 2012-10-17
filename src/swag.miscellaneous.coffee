@@ -1,6 +1,5 @@
 Handlebars.registerHelper 'default', (value, defaultValue) ->
-    newValue = value ? defaultValue
-    if newValue then newValue else defaultValue
+    value ? defaultValue
 
 Handlebars.registerHelper 'partial', (name, data) ->
     partial = Swag.Config.partialsPath + name
