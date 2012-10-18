@@ -1,11 +1,14 @@
 Handlebars.registerHelper 'toFixed', (number, digits) ->
-    number.toFixed if Utils.isUndefined(digits) then digits
+    digits = 0 if Utils.isUndefined(digits)
+    number.toFixed digits
 
 Handlebars.registerHelper 'toPrecision', (number, precision) ->
-    number.toPrecision if Utils.isUndefined(precision) then precision
+    precision = 1 if Utils.isUndefined(precision)
+    number.toPrecision precision
 
 Handlebars.registerHelper 'toExponential', (number, fractions) ->
-    number.toExponential if Utils.isUndefined(fractions) then fractions
+    fractions = 0 if Utils.isUndefined(fractions)
+    number.toExponential fractions
 
 Handlebars.registerHelper 'toInt', (number) ->
     parseInt number, 10
