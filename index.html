@@ -33,12 +33,12 @@
       <section id="main_content" class="inner">
         <h1>Swag</h1>
 
-<p>Swag is a growing collection of helpers for <a href="https://github.com/wycats/handlebars.js/">Handlebars.js</a>.</p>
+<p>Swag is a growing collection of helpers for <a href="https://github.com/wycats/handlebars.js/">Handlebars.js</a>. Give your handlebars.js templates some swag son!</p>
 
 <h2>Usage</h2>
 
 <pre><code>&lt;script src="../path_to/handlebars.js"&gt;&lt;/script&gt;
-&lt;script src="../path_to/swag.js"&gt;&lt;/script&gt;    
+&lt;script src="../path_to/swag.js"&gt;&lt;/script&gt;
 </code></pre>
 
 <h2>Strings</h2>
@@ -333,7 +333,7 @@ Amy Wong &amp; Bender &amp; Dr. Zoidberg &amp; Fry &amp; Hermes Conrad &amp; Lee
 
 <p>Parameters:</p>
 
-<pre><code>field [string] - String name of the field or property to sort by. (Optional)
+<pre><code>none.
 </code></pre>
 
 <p>Usage:</p>
@@ -481,6 +481,23 @@ Good news everyone!
 I'm walking on sunshine!
 </code></pre>
 
+<h3>eachIndex</h3>
+
+<p>Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>collection = ['Professor Farnsworth', 'Fry', 'Bender']
+
+{{#eachIndex collection}}
+    {{this}} is {{index}}
+{{/eachIndex}}
+
+Professor Farnsworth is 0, Fry is 1, Bender is 2
+</code></pre>
+
 <h2>Math</h2>
 
 <h4>add</h4>
@@ -599,6 +616,109 @@ I'm walking on sunshine!
 
 6
 </code></pre>
+
+<h2>Numbers</h2>
+
+<h4>toFixed</h4>
+
+<p>Returns exactly <code>digits</code> after the decimal place. The number is rounded if necessary, and the fractional part is padded with zeros if necessary so that it has the specified length.</p>
+
+<p>Parameters:</p>
+
+<pre><code>digits [int] - The number of digits to appear after the decimal point. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5.53231
+
+{{toFixed value 3}}
+
+5.532
+</code></pre>
+
+<h4>toPrecision</h4>
+
+<p>Returns the number in fixed-point or exponential notation rounded to <code>precision</code> significant digits.</p>
+
+<p>Parameters:</p>
+
+<pre><code>precision [int] - The number of digits. If omitted, it returns the entire number (without any formatting). (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 555.322
+
+{{toPrecision value 4}}
+
+555.3
+</code></pre>
+
+<h4>toExponential</h4>
+
+<p>Returns the number in exponential notation with one digit before the decimal point, rounded to <code>fractions</code> digits after the decimal point.</p>
+
+<p>Parameters:</p>
+
+<pre><code>fractions [int] - An integer specifying the number of digits after the decimal point. (Optional)
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>value = 5
+
+{{toExponential value 5}}
+
+5.00000e+0
+</code></pre>
+
+<h4>toInt</h4>
+
+<p>Returns an integer.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = '22.2abc'
+
+{{toInt value}}
+
+22
+</code></pre>
+
+<h4>toFloat</h4>
+
+<p>Returns a floating point number.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = '22.2abc'
+
+{{toFloat value}}
+
+22.2
+</code></pre>
+
+<h4>addCommas</h4>
+
+<p>Adds commas to a number.</p>
+
+<p>Parameters: none.</p>
+
+<p>Usage:</p>
+
+<pre><code>value = 2222222
+
+{{addCommas value}}
+
+2,222,222
+</code></pre>
+
+<h3>#</h3>
 
 <h2>Comparisons</h2>
 
@@ -973,7 +1093,7 @@ data [int|string|collection] - The data you want to use inside the partial. (Opt
 <p>Usage:</p>
 
 <pre><code># Path to your templates from where yo override Swag.Config.partialsPath
-# The path must finish with foward slash '/'
+# The path must finish with a foward slash '/'
 Swag.Config.partialsPath = '../views/templates/'
 
 collection = ['Professor Farnsworth', 'Fry', 'Bender']
@@ -987,8 +1107,7 @@ collection = ['Professor Farnsworth', 'Fry', 'Bender']
 &lt;/p&gt;
 
 &lt;p&gt;Bender, Fry, Professor Farnsworth&lt;/p&gt;
-</code></pre>
-      </section>
+</code></pre>      </section>
     </div>
 
     <!-- FOOTER  -->
