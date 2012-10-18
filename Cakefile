@@ -26,11 +26,11 @@ task 'build', ->
         code += fs.readFileSync(file)
 
     code = coffee.compile(code)
-    # code = pro.gen_code(
-    #     pro.ast_squeeze(
-    #         pro.ast_mangle(jsp.parse code)
-    #     )
-    # )
+    code = pro.gen_code(
+        pro.ast_squeeze(
+            pro.ast_mangle(jsp.parse code)
+        )
+    )
 
     fs.writeFile 'lib/swag.js', code
 
