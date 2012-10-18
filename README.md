@@ -3,10 +3,14 @@
 Swag is a growing collection of helpers for [Handlebars.js](https://github.com/wycats/handlebars.js/). Give your handlebars.js templates some swag son!
 
 ## Usage
-
+    <!-- Browser -->
     <script src="../path_to/handlebars.js"></script>
     <script src="../path_to/swag.js"></script>
 
+    // Node
+    Handlebars = require('handlebars');
+    Swag = require('swag');
+    
 ## Strings
 
 #### lowercase
