@@ -126,6 +126,18 @@ Usage:
 
               Bender should not be allowed on tv.
 
+#### newLineToBr
+
+Converts new line characters `\n` to line breaks `<br>`.
+
+Parameters: none.
+
+Usage:
+
+    {{{newLineToBr "Bender \n should \n not \n be allowed on tv."}}}
+
+    Bender <br> should <br> not <br> be allowed on tv.
+
 ## Collections
 
 #### first
