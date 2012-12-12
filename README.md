@@ -781,7 +781,6 @@ Usage:
     great = no
     magnificent = true
     
-
     {{#or great magnificent}}
         Kiss my shiny metal ass!
     {{else}}
@@ -803,7 +802,6 @@ Usage:
     great = true
     magnificent = true
     
-
     {{#and great magnificent}}
         Kiss my shiny metal ass!
     {{else}}
