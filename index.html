@@ -740,7 +740,7 @@ Professor Farnsworth is 0, Fry is 1, Bender is 2
 
 <h2>Comparisons</h2>
 
-<h4>equal</h4>
+<h4>is</h4>
 
 <p>Conditionally render a block if the condition is true.</p>
 
@@ -753,18 +753,18 @@ Professor Farnsworth is 0, Fry is 1, Bender is 2
 
 <pre><code>number = 5
 
-{{#equal number 5}}
+{{#is number 5}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
-{{/equal}}
+{{/is}}
 
 Kiss my shiny metal ass!
 </code></pre>
 
-<h4>notEqual</h4>
+<h4>isnt</h4>
 
-<p>Conditionally render a block if the condition is false. Opposite of <code>equal</code>.</p>
+<p>Conditionally render a block if the condition is false. Opposite of <code>is</code>.</p>
 
 <p>Parameters:</p>
 
@@ -775,11 +775,11 @@ Kiss my shiny metal ass!
 
 <pre><code>number = 5
 
-{{#notEqual number 5}}
+{{#isnt number 5}}
     Kiss my shiny metal ass!
 {{else}}
     Never mind :(
-{{/notEqual}}
+{{/isnt}}
 
 Never mind :(
 </code></pre>
@@ -871,6 +871,53 @@ Never mind :(
 
 Kiss my shiny metal ass!
 </code></pre>
+
+<h4>or</h4>
+
+<p>Conditionally render a block if one of the values is truthy.</p>
+
+<p>Parameters:</p>
+
+<pre><code>values [string|int] - the values to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>great = no
+magnificent = true
+
+{{#or great magnificent}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/or}}
+
+Kiss my shiny metal ass!
+</code></pre>
+
+<h4>and</h4>
+
+<p>Conditionally render a block if both values are truthy.</p>
+
+<p>Parameters:</p>
+
+<pre><code>values [string|int] - the values to test against.
+</code></pre>
+
+<p>Usage:</p>
+
+<pre><code>great = true
+magnificent = true
+
+{{#and great magnificent}}
+    Kiss my shiny metal ass!
+{{else}}
+    Never mind :(
+{{/and}}
+
+Kiss my shiny metal ass!
+</code></pre>
+
 
 <h2>Dates</h2>
 
