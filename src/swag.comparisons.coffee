@@ -15,3 +15,9 @@ Handlebars.registerHelper 'lt', (value, test, options) ->
 
 Handlebars.registerHelper 'lte', (value, test, options) ->
     if value <= test then options.fn(@) else options.inverse(@)
+
+Handlebars.registerHelper 'or', (testA, testB, options) ->
+    if testA or testB then options.fn(@) else options.inverse(@)
+
+Handlebars.registerHelper 'and', (testA, testB, options) ->
+    if testA and testB then options.fn(@) else options.inverse(@)

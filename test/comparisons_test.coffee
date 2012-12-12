@@ -80,3 +80,29 @@ describe 'lte', ->
             context  = number: 8
 
             template(context).should.equal 'Kiss my big metal ass!'
+
+describe 'or', ->
+    describe '{{#or great magnificent}} \n
+        Kiss my perfect metal ass! \n
+    {{else}} \n
+        Never mind :( \n
+    {{/or}}', ->
+        it 'should render a block if one of the values is truthy.', ->
+            source   = '{{#or great magnificent}}Kiss my perfect metal ass!{{else}}Never mind :({{/or}}'
+            template = Handlebars.compile(source)
+            context  = great: no, magnificent: yes
+
+            template(context).should.equal 'Kiss my perfect metal ass!'
+
+describe 'and', ->
+    describe '{{#and great magnificent}} \n
+        Kiss my glorious metal ass! \n
+    {{else}} \n
+        Never mind :( \n
+    {{/and}}', ->
+        it 'should render a block if both values are truthy.', ->
+            source   = '{{#and great magnificent}}Kiss my glorious metal ass!{{else}}Never mind :({{/and}}'
+            template = Handlebars.compile(source)
+            context  = great: yes, magnificent: yes
+
+            template(context).should.equal 'Kiss my glorious metal ass!'

@@ -768,6 +768,50 @@ Usage:
 
     Kiss my shiny metal ass!
 
+#### or
+
+Conditionally render a block if one of the values is truthy.
+
+Parameters:
+
+    values [string|int] - the values to test against.
+
+Usage:
+
+    great = no
+    magnificent = true
+    
+
+    {{#or great magnificent}}
+        Kiss my shiny metal ass!
+    {{else}}
+        Never mind :(
+    {{/or}}
+
+    Kiss my shiny metal ass!
+
+#### and
+
+Conditionally render a block if both values are truthy.
+
+Parameters:
+
+    values [string|int] - the values to test against.
+
+Usage:
+
+    great = true
+    magnificent = true
+    
+
+    {{#and great magnificent}}
+        Kiss my shiny metal ass!
+    {{else}}
+        Never mind :(
+    {{/and}}
+
+    Kiss my shiny metal ass!
+
 ## Dates
 
 #### formatDate
