@@ -3,27 +3,27 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
-describe 'equal', ->
-    describe '{{#equal bender "great"}} \n
+describe 'is', ->
+    describe '{{#is bender "great"}} \n
         Kiss my shiny metal ass! \n
     {{else}} \n
         Never mind :( \n
-    {{/equal}}', ->
+    {{/is}}', ->
         it 'should render a block if the condition is true.', ->
-            source   = '{{#equal bender "great"}}Kiss my shiny metal ass!{{else}}Never mind :({{/equal}}'
+            source   = '{{#is bender "great"}}Kiss my shiny metal ass!{{else}}Never mind :({{/is}}'
             template = Handlebars.compile(source)
             context  = bender: 'great'
 
             template(context).should.equal 'Kiss my shiny metal ass!'
 
-describe 'notEqual', ->
-    describe '{{#notEqual number 2}} \n
+describe 'isnt', ->
+    describe '{{#isnt number 2}} \n
         Kiss my great metal ass! \n
     {{else}} \n
         Never mind :( \n
-    {{/notEqual}}', ->
+    {{/isnt}}', ->
         it 'should render a block if the condition is not true.', ->
-            source   = '{{#notEqual number 2}}Kiss my great metal ass!{{else}}Never mind :({{/notEqual}}'
+            source   = '{{#isnt number 2}}Kiss my great metal ass!{{else}}Never mind :({{/isnt}}'
             template = Handlebars.compile(source)
             context  = number: 3
 

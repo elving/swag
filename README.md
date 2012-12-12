@@ -10,7 +10,7 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
     // Node
     Handlebars = require('handlebars');
     Swag = require('swag');
-    
+
 ## Strings
 
 #### lowercase
@@ -648,7 +648,7 @@ Usage:
 
 ## Comparisons
 
-#### equal
+#### is
 
 Conditionally render a block if the condition is true.
 
@@ -660,17 +660,17 @@ Usage:
 
     number = 5
 
-    {{#equal number 5}}
+    {{#is number 5}}
         Kiss my shiny metal ass!
     {{else}}
         Never mind :(
-    {{/equal}}
+    {{/is}}
 
     Kiss my shiny metal ass!
 
-#### notEqual
+#### isnt
 
-Conditionally render a block if the condition is false. Opposite of `equal`.
+Conditionally render a block if the condition is false. Opposite of `is`.
 
 Parameters:
 
@@ -680,11 +680,11 @@ Usage:
 
     number = 5
 
-    {{#notEqual number 5}}
+    {{#isnt number 5}}
         Kiss my shiny metal ass!
     {{else}}
         Never mind :(
-    {{/notEqual}}
+    {{/isnt}}
 
     Never mind :(
 
@@ -780,7 +780,7 @@ Usage:
 
     great = no
     magnificent = true
-    
+
     {{#or great magnificent}}
         Kiss my shiny metal ass!
     {{else}}
@@ -801,7 +801,7 @@ Usage:
 
     great = true
     magnificent = true
-    
+
     {{#and great magnificent}}
         Kiss my shiny metal ass!
     {{else}}

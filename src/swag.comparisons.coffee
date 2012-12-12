@@ -1,7 +1,7 @@
-Handlebars.registerHelper 'equal', (value, test, options) ->
+Handlebars.registerHelper 'is', (value, test, options) ->
     if value is test then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'notEqual', (value, test, options) ->
+Handlebars.registerHelper 'isnt', (value, test, options) ->
     if value isnt test then options.fn(@) else options.inverse(@)
 
 Handlebars.registerHelper 'gt', (value, test, options) ->
