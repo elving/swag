@@ -26,12 +26,13 @@ task 'build', ->
         code += fs.readFileSync(file)
 
     code = coffee.compile(code)
-    code = pro.gen_code(
+    minified_code = pro.gen_code(
         pro.ast_squeeze(
             pro.ast_mangle(jsp.parse code)
         )
     )
 
+    fs.writeFile 'lib/swag.min.js', minified_code
     fs.writeFile 'lib/swag.js', code
 
 task 'test:collections', ->
@@ -141,6 +142,6 @@ task 'test', ->
     )
 
     fs.readdirSync('test').forEach (file) ->
-        mocha.addFile("test/#{file}") unless file is 'mocha.opts'
+        mocha.addFile("test/#{file}") unless file is 'mocha.opts' or file is 'templates'
 
     mocha.run()
