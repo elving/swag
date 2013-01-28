@@ -37,4 +37,4 @@ Handlebars.registerHelper 'center', (str, spaces) ->
     "#{space}#{str}#{space}"
 
 Handlebars.registerHelper 'newLineToBr', (str) ->
-    str.replace /\n/g, '<br>'
+    str.replace /\r?\n|\r/g, '<br>'
