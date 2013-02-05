@@ -15,11 +15,11 @@ describe 'formatDate', ->
 describe 'now', ->
     describe '{{now}}', ->
         it 'should return the current date.', ->
+            date     = new Date().getTime()
             source   = '{{now}}'
             template = Handlebars.compile(source)
 
-            currentTime = new Date().getTime()
-            template().should.be.within(currentTime - 5, currentTime + 1)
+            template().should.be.within date - 10, date + 10
 
 describe 'timeago', ->
     describe '{{timeago date}}', ->
