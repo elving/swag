@@ -1,8 +1,8 @@
-fs     = require 'fs'
-path   = require 'path'
+fs = require 'fs'
+path = require 'path'
+Mocha = require 'mocha'
 coffee = require 'coffee-script'
-Mocha  = require 'mocha'
-{ parser: jsp, uglify: pro } = require 'uglify-js'
+UglifyJS = require 'uglify-js'
 
 task 'build', ->
     code  = ''
@@ -22,18 +22,13 @@ task 'build', ->
         'src/swag.miscellaneous.coffee'
     ]
 
-    files.forEach (file) ->
-        code += fs.readFileSync(file)
+    files.forEach (file) -> code += fs.readFileSync file
 
-    code = coffee.compile(code)
-    minified_code = pro.gen_code(
-        pro.ast_squeeze(
-            pro.ast_mangle(jsp.parse code)
-        )
-    )
+    code = coffee.compile code
+    minified_code = (UglifyJS.minify code, fromString: yes).code
 
-    fs.writeFile 'lib/swag.min.js', minified_code
     fs.writeFile 'lib/swag.js', code
+    fs.writeFile 'lib/swag.min.js', minified_code
 
 task 'test:collections', ->
     mocha = new Mocha(
@@ -41,7 +36,7 @@ task 'test:collections', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/collections_test')
+    mocha.addFile 'test/collections_test'
 
     mocha.run()
 
@@ -51,7 +46,7 @@ task 'test:math', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/math_test')
+    mocha.addFile 'test/math_test'
 
     mocha.run()
 
@@ -61,7 +56,7 @@ task 'test:strings', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/strings_test')
+    mocha.addFile 'test/strings_test'
 
     mocha.run()
 
@@ -71,7 +66,7 @@ task 'test:comparisons', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/comparisons_test')
+    mocha.addFile 'test/comparisons_test'
 
     mocha.run()
 
@@ -81,7 +76,7 @@ task 'test:dates', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/dates_test')
+    mocha.addFile 'test/dates_test'
 
     mocha.run()
 
@@ -91,7 +86,7 @@ task 'test:inflections', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/inflections_test')
+    mocha.addFile 'test/inflections_test'
 
     mocha.run()
 
@@ -101,7 +96,7 @@ task 'test:html', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/html_test')
+    mocha.addFile 'test/html_test'
 
     mocha.run()
 
@@ -111,7 +106,7 @@ task 'test:logging', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/logging_test')
+    mocha.addFile 'test/logging_test'
 
     mocha.run()
 
@@ -121,7 +116,7 @@ task 'test:miscellaneous', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/miscellaneous_test')
+    mocha.addFile 'test/miscellaneous_test'
 
     mocha.run()
 
@@ -131,7 +126,7 @@ task 'test:numbers', ->
         reporter: 'spec'
     )
 
-    mocha.addFile('test/numbers_test')
+    mocha.addFile 'test/numbers_test'
 
     mocha.run()
 
@@ -141,7 +136,7 @@ task 'test', ->
         reporter: 'min'
     )
 
-    fs.readdirSync('test').forEach (file) ->
-        mocha.addFile("test/#{file}") unless file is 'mocha.opts' or file is 'templates'
+    (fs.readdirSync 'test').forEach (file) ->
+        mocha.addFile "test/#{file}" unless file is 'mocha.opts' or file is 'templates'
 
     mocha.run()
