@@ -429,7 +429,7 @@ Usage:
 
 ### eachIndex
 
-Current implementation of the default Handlebars loop helper {{#each}} adding index (0-based index) to the loop context.
+Renders a block using the array and each item's index.
 
 Parameters: none.
 
@@ -438,7 +438,7 @@ Usage:
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
 
     {{#eachIndex collection}}
-        {{this}} is {{index}}
+        {{item}} is {{index}}
     {{/eachIndex}}
 
     Professor Farnsworth is 0, Fry is 1, Bender is 2

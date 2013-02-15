@@ -79,21 +79,13 @@ Handlebars.registerHelper 'any', (array, options) ->
 Handlebars.registerHelper 'inArray', (array, value, options) ->
     if array.indexOf(value) isnt -1  then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'eachIndex', (context, options) ->
-    ret = ''
-    data = Handlebars.createFrame(options.data) if options.data?
-    if context and context.length > 0
-        i = 0
-        j = context.length
+Handlebars.registerHelper 'eachIndex', (array, options) ->
+    result = ''
 
-        while i < j
-            data.index = i if data
-            context[i].index = i
-            ret = ret + options.fn context[i]
-            i++
-    else
-        ret = options.inverse(@)
-    ret
+    for value, index in array
+        result += options.fn item: value, index: index
+
+    result
 
 Handlebars.registerHelper 'eachProperty', (obj, options) ->
     result = ''

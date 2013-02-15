@@ -240,6 +240,16 @@ describe 'inArray', ->
 
             template(context).should.equal 'I\'m walking on sunshine!'
 
+describe 'eachIndex', ->
+    describe '{{#eachIndex collection}} \n
+        {{item}} is {{index}} \n
+    {{/eachIndex}}', ->
+        it 'should render the block using the array and each item\'s index.', ->
+            source = '{{#eachIndex collection}} {{item}} is {{index}} {{/eachIndex}}'
+            template = Handlebars.compile(source)
+
+            template(context).should.equal ' Amy Wong is 0  Bender is 1  Dr. Zoidberg is 2  Fry is 3  Hermes Conrad is 4  Leela is 5  Professor Farnsworth is 6  Scruffy is 7 '
+
 describe 'eachProperty', ->
     describe '{{#eachProperty collection}} \n
         {{key}}: {{value}} \n
