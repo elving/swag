@@ -239,3 +239,14 @@ describe 'inArray', ->
             template = Handlebars.compile(source)
 
             template(context).should.equal 'I\'m walking on sunshine!'
+
+describe 'eachProperty', ->
+    describe '{{#eachProperty collection}} \n
+        {{key}}: {{value}} \n
+    {{/eachProperty}}', ->
+        it 'should use the key and value of each property in an object inside a block.', ->
+            source = '{{#eachProperty collection}}{{key}}: {{value}} {{/eachProperty}}'
+            template = Handlebars.compile(source)
+            _context = collection: fry: 3, bender: 120
+
+            template(_context).should.equal 'fry: 3 bender: 120 '

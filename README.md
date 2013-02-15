@@ -443,6 +443,22 @@ Usage:
 
     Professor Farnsworth is 0, Fry is 1, Bender is 2
 
+### eachProperty
+
+Uses the key and value of each property in an object to render a block.
+
+Parameters: none.
+
+Usage:
+
+    collection = fry: 3, bender: 120
+
+    {{#eachProperty collection}}
+        {{key}} - {{value}}
+    {{/eachProperty}}
+
+    fry - 3 bender - 120
+
 ## Math
 
 #### add

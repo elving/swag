@@ -94,3 +94,11 @@ Handlebars.registerHelper 'eachIndex', (context, options) ->
     else
         ret = options.inverse(@)
     ret
+
+Handlebars.registerHelper 'eachProperty', (obj, options) ->
+    result = ''
+
+    for key, value of obj
+        result += options.fn key: key, value: value
+
+    result
