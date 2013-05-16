@@ -646,17 +646,19 @@ Usage:
 
     22.2
 
-#### addCommas
+#### digitGrouping
 
-Adds commas to a number.
+Adds thousands separator to a number.
 
-Parameters: none.
+Parameters:
+
+    separator [string] - A string to use as a digit group separator. (Optional)
 
 Usage:
 
     value = 2222222
 
-    {{addCommas value}}
+    {{addCommas value ","}}
 
     2,222,222
 

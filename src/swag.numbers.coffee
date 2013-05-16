@@ -16,5 +16,6 @@ Handlebars.registerHelper 'toInt', (number) ->
 Handlebars.registerHelper 'toFloat', (number) ->
     parseFloat number
 
-Handlebars.registerHelper 'addCommas', (number) ->
-    number.toString().replace /(\d)(?=(\d\d\d)+(?!\d))/g, "$1,"
+Handlebars.registerHelper 'digitGrouping', (number, separator) ->
+    separator = ',' if Utils.isUndefined(separator)
+    number.toString().replace /(\d)(?=(\d\d\d)+(?!\d))/g, "$1#{separator}"
