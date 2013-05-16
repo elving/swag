@@ -72,11 +72,19 @@ describe 'toFloat', ->
 
             template(context).should.equal 3.1
 
-describe 'addCommas', ->
-    describe '{{addCommas value}}', ->
+describe 'digitGrouping', ->
+    describe '{{digitGrouping value}}', ->
         it 'should add commas to a number.', ->
             source   = '{{addCommas value}}'
             template = Handlebars.compile(source)
             context  = value: 2222222
 
             template(context).should.equal '2,222,222'
+    
+    describe '{{digitGrouping value separator}}', ->
+        it 'should add custom separator to a number.', ->
+            source   = '{{addCommas value " "}}'
+            template = Handlebars.compile(source)
+            context  = value: 2222222
+
+            template(context).should.equal '2 222 222'
