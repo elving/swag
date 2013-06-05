@@ -1063,3 +1063,10 @@ Usage:
 
     <p>Bender, Fry, Professor Farnsworth</p>
 
+## Using local Handlebars
+
+Handlebars may not always be present in the global scope. If that's the case, just pass your Handlebars instance to the `registerHelpers` method
+
+```javascript
+    Swag.resiterHelpers(Handlebars);
+```
