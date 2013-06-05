@@ -28,7 +28,7 @@ describe 'first', ->
             source   = '{{first collection 2}}'
             template = Handlebars.compile(source)
 
-            template(context).should.eql ['Amy Wong', 'Bender']
+            template(context).should.eql 'Amy Wong,Bender'
 
 describe 'withFirst', ->
     describe '{{#withFirst collection}} \n
@@ -63,7 +63,7 @@ describe 'last', ->
             source   = '{{last collection 2}}'
             template = Handlebars.compile(source)
 
-            template(context).should.eql ['Professor Farnsworth', 'Scruffy']
+            template(context).should.eql 'Professor Farnsworth,Scruffy'
 
 describe 'withLast', ->
     describe '{{#withLast collection}} \n
@@ -90,7 +90,7 @@ describe 'after', ->
             source   = '{{after collection 5}}'
             template = Handlebars.compile(source)
 
-            template(context).should.eql ['Leela', 'Professor Farnsworth', 'Scruffy']
+            template(context).should.eql 'Leela,Professor Farnsworth,Scruffy'
 
 describe 'withAfter', ->
     describe '{{#withAfter collection 5}} \n
@@ -108,7 +108,7 @@ describe 'before', ->
             source   = '{{before collection 5}}'
             template = Handlebars.compile(source)
 
-            template(context).should.eql ['Amy Wong', 'Bender', 'Dr. Zoidberg']
+            template(context).should.eql 'Amy Wong,Bender,Dr. Zoidberg'
 
 describe 'withBefore', ->
     describe '{{#withBefore collection 5}} \n
@@ -133,26 +133,10 @@ describe 'sort', ->
         it 'should return all items in a collection sorted in lexicographical order.', ->
             source   = '{{sort collection}}'
             template = Handlebars.compile(source)
-
-            template(context).should.eql ['Amy Wong', 'Bender', 'Dr. Zoidberg', 'Fry', 'Hermes Conrad', 'Leela', 'Professor Farnsworth', 'Scruffy']
-
-    describe '{{sort collection "name"}}', ->
-        it 'should return all items in a collection sorted in by name.', ->
-            source   = '{{sort collection "name"}}'
-            template = Handlebars.compile(source)
             _context =
-                collection: [
-                    name: 'Leela'
-                    deliveries: 8021
-                ,
-                    name: 'Bender'
-                    deliveries: 239
-                ,
-                    name: 'Fry'
-                    deliveries: -12
-                ]
+                collection: ['Dr. Zoidberg', 'Fry', 'Amy Wong', 'Professor Farnsworth', 'Bender', 'Hermes Conrad', 'Leela', 'Scruffy']
 
-            template(_context).should.eql [{name: 'Bender', deliveries: 239}, {name: 'Fry', deliveries: -12}, {name: 'Leela', deliveries: 8021}]
+            template(_context).should.eql 'Amy Wong,Bender,Dr. Zoidberg,Fry,Hermes Conrad,Leela,Professor Farnsworth,Scruffy'
 
 describe 'withSort', ->
     describe '{{#withSort collection}} \n
@@ -190,7 +174,7 @@ describe 'length', ->
             source   = '{{length collection}}'
             template = Handlebars.compile(source)
 
-            template(context).should.equal 8
+            template(context).should.equal '8'
 
 describe 'lengthEqual', ->
     describe '{{#lengthEqual collection 3}} \n

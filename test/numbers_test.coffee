@@ -61,7 +61,7 @@ describe 'toInt', ->
             template = Handlebars.compile(source)
             context  = value: '3cc'
 
-            template(context).should.equal 3
+            template(context).should.equal '3'
 
 describe 'toFloat', ->
     describe '{{toFloat value}}', ->
@@ -70,7 +70,7 @@ describe 'toFloat', ->
             template = Handlebars.compile(source)
             context  = value: '3.1cc'
 
-            template(context).should.equal 3.1
+            template(context).should.equal '3.1'
 
 describe 'addCommas', ->
     describe '{{addCommas value}}', ->
