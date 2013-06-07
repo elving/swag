@@ -658,7 +658,7 @@ Usage:
 
     value = 2222222
 
-    {{addCommas value ","}}
+    {{digitGrouping value}}
 
     2,222,222
 
