@@ -423,7 +423,7 @@ Usage:
         I'm walking on sunshine!
     {{else}}
         I'm walking on darkness.
-    {{/any}}
+    {{/inArray}}
 
     I'm walking on sunshine!
 
@@ -1048,7 +1048,7 @@ Parameters:
 Usage:
 
     # Path to your templates from where yo override Swag.Config.partialsPath
-    # The path must finish with a foward slash '/'
+    # The path must finish with a forward slash '/'
     Swag.Config.partialsPath = '../views/templates/'
 
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
