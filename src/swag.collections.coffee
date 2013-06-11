@@ -77,7 +77,7 @@ Handlebars.registerHelper 'any', (array, options) ->
     if array.length > 0 then options.fn(@) else options.inverse(@)
 
 Handlebars.registerHelper 'inArray', (array, value, options) ->
-    if value in array isnt -1  then options.fn(@) else options.inverse(@)
+    if value in array then options.fn(@) else options.inverse(@)
 
 Handlebars.registerHelper 'eachIndex', (array, options) ->
     result = ''
