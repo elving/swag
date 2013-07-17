@@ -25,7 +25,12 @@ task 'build', ->
     files.forEach (file) -> code += fs.readFileSync file
 
     code = coffee.compile code
-    minified_code = (UglifyJS.minify code, fromString: yes).code
+    options =
+        output:
+            comments: yes
+        fromString: yes
+
+    minified_code = (UglifyJS.minify code, options).code
 
     fs.writeFile 'lib/swag.js', code
     fs.writeFile 'lib/swag.min.js', minified_code
