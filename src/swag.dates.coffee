@@ -94,20 +94,19 @@ Handlebars.registerHelper 'now', (format) ->
 Handlebars.registerHelper 'timeago', (date) ->
     date = new Date date
     seconds = Math.floor((new Date() - date) / 1000)
-
+    
     interval = Math.floor(seconds / 31536000)
     return "#{interval} years ago" if interval > 1
-
     interval = Math.floor(seconds / 2592000)
+    return if interval ==1 then "about a month ago"
     return if interval > 1 then "#{interval} months ago"
-
     interval = Math.floor(seconds / 86400)
+    return if interval ==1 then "about a day ago"
     return if interval > 1 then "#{interval} days ago"
-
     interval = Math.floor(seconds / 3600)
+    return if interval ==1 then "about an hour ago"
     return if interval > 1 then "#{interval} hours ago"
-
     interval = Math.floor(seconds / 60)
+    return if interval ==1 then "about a minute ago"
     return if interval > 1 then "#{interval} minutes ago"
-
-    if Math.floor(seconds) is 0 then 'Just now' else Math.floor(seconds) + ' seconds ago'
+    if Math.floor(seconds) is 0 then 'just now' else Math.floor(seconds) + ' seconds ago'
