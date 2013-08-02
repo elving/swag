@@ -110,3 +110,49 @@ Handlebars.registerHelper 'timeago', (date) ->
     return if interval ==1 then "about a minute ago"
     return if interval > 1 then "#{interval} minutes ago"
     if Math.floor(seconds) is 0 then 'just now' else Math.floor(seconds) + ' seconds ago'
+    
+# Converts date strings into human readable formats like "Yesterday at 1:26 PM"
+Handlebars.registerHelper 'friendlydate', (dateString) ->
+    # parse dateString or fail gracefully
+    date = new Date(dateString)
+    if date.toString() is 'Invalid Date'
+      date = new Date(parseInt(dateString, 10)) # timestamp
+    if date.toString() is 'Invalid Date'
+      console.error "Handlebars helper friendlydate couldn't parse date '#{dateString}'"
+      return dateString
+    
+    today = new Date()
+    month = ['January','February','March', 'April', 'May', 'June', 'July', 'August', 'September', 'October ', 'November', 'December'][date.getMonth()]
+    dayName = [ 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'][date.getDay()]
+    hours = date.getHours()
+    hours = hours - 12 if hours > 12 # 0:17 AM seems clearer than 12:17 AM for midnight
+    mins = ('0'+date.getMinutes()).substr(-2,2)
+    ampm = if date.getHours() >= 12 then 'PM' else 'AM'
+    
+    # Today at XX:XX PM
+    if date.getDate() is today.getDate() 
+      return "Today at #{hours}:#{mins} #{ampm}" # TODO: capitalization solution. Does user want "today" or "Today"?
+    
+    # Yesterday at XX:XX PM
+    yesterday = new Date()
+    yesterday.setDate(today.getDate()-1)
+    if date.getDate() is yesterday.getDate()
+      return "Yesterday at #{hours}:#{mins} #{ampm}"
+    
+    # Thursday at XX:XX AM
+    sixDaysAgo = new Date()
+    sixDaysAgo.setDate(today.getDate()-6)
+    sixDaysAgo.setHours(0)
+    sixDaysAgo.setMinutes(0)
+    sixDaysAgo.setSeconds(0)
+    if date > sixDaysAgo
+      return "#{dayName} at #{hours}:#{mins} #{ampm}"
+    
+    year = date.getFullYear()
+    day = date.getDate()
+    # July 19 at XX:XX AM
+    if year is today.getFullYear()
+      return "#{month} #{day} at #{hours}:#{mins} #{ampm}"
+    
+    # June 10, 2012 at XX:XX PM
+    return "#{month} #{day}, #{year} at #{hours}:#{mins} #{ampm}"
