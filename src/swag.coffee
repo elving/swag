@@ -1,5 +1,5 @@
 ###
-    Swag v0.2.7 <http://elving.github.com/swag/>
+    Swag v0.2.8 <http://elving.github.com/swag/>
     Copyright 2012 Elving Rodriguez <http://elving.me/>
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
