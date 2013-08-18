@@ -7,6 +7,14 @@
 if window?
     Handlebars = window.Handlebars
     window.Swag = Swag = {}
+    Swag.registerHelper = ->
+        if window.Ember
+            Ember.Handlebars.helper arguments
+        else
+            Handlebars.registerHelper arguments
+
 if module?
     Handlebars = require 'handlebars'
     module.exports = Swag = {}
+    Swag.registerHelper = ->
+        Handlebars.registerHelper arguments

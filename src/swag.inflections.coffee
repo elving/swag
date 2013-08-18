@@ -1,8 +1,8 @@
-Handlebars.registerHelper 'inflect', (count, singular, plural, include) ->
+Swag.registerHelper 'inflect', (count, singular, plural, include) ->
     word = if count > 1 or count is 0 then plural else singular
     if Utils.isUndefined(include) or include is false then word else "#{count} #{word}"
 
-Handlebars.registerHelper 'ordinalize', (value) ->
+Swag.registerHelper 'ordinalize', (value) ->
     normal = Math.abs Math.round value
 
     if (normal % 100) in [11..13]

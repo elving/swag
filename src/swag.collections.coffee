@@ -1,7 +1,7 @@
-Handlebars.registerHelper 'first', (array, count) ->
+Swag.registerHelper 'first', (array, count) ->
     if Utils.isUndefined(count) then array[0] else array.slice 0, count
 
-Handlebars.registerHelper 'withFirst', (array, count, options) ->
+Swag.registerHelper 'withFirst', (array, count, options) ->
     if Utils.isUndefined count
         options = count
         options.fn array[0]
@@ -11,10 +11,10 @@ Handlebars.registerHelper 'withFirst', (array, count, options) ->
         for item of array then result += options.fn array[item]
         result
 
-Handlebars.registerHelper 'last', (array, count) ->
+Swag.registerHelper 'last', (array, count) ->
     if Utils.isUndefined(count) then array[array.length - 1] else array.slice -count
 
-Handlebars.registerHelper 'withLast', (array, count, options) ->
+Swag.registerHelper 'withLast', (array, count, options) ->
     if Utils.isUndefined count
         options = count
         options.fn array[array.length - 1]
@@ -24,34 +24,34 @@ Handlebars.registerHelper 'withLast', (array, count, options) ->
         for item of array then result += options.fn array[item]
         result
 
-Handlebars.registerHelper 'after', (array, count) ->
+Swag.registerHelper 'after', (array, count) ->
     array.slice count
 
-Handlebars.registerHelper 'withAfter', (array, count, options) ->
+Swag.registerHelper 'withAfter', (array, count, options) ->
     array = array.slice count
     result = ''
     for item of array then result += options.fn array[item]
     result
 
-Handlebars.registerHelper 'before', (array, count) ->
+Swag.registerHelper 'before', (array, count) ->
     array.slice 0, -count
 
-Handlebars.registerHelper 'withBefore', (array, count, options) ->
+Swag.registerHelper 'withBefore', (array, count, options) ->
     array = array.slice 0, -count
     result = ''
     for item of array then result += options.fn array[item]
     result
 
-Handlebars.registerHelper 'join', (array, separator) ->
+Swag.registerHelper 'join', (array, separator) ->
     array.join if Utils.isUndefined(separator) then ' ' else separator
 
-Handlebars.registerHelper 'sort', (array, field) ->
+Swag.registerHelper 'sort', (array, field) ->
     if Utils.isUndefined field
         array.sort()
     else
         array.sort (a, b) -> a[field] > b[field]
 
-Handlebars.registerHelper 'withSort', (array, field, options) ->
+Swag.registerHelper 'withSort', (array, field, options) ->
     result = ''
 
     if Utils.isUndefined field
@@ -64,22 +64,22 @@ Handlebars.registerHelper 'withSort', (array, field, options) ->
 
     result
 
-Handlebars.registerHelper 'length', (array) ->
+Swag.registerHelper 'length', (array) ->
     array.length
 
-Handlebars.registerHelper 'lengthEqual', (array, length, options) ->
+Swag.registerHelper 'lengthEqual', (array, length, options) ->
     if array.length is length then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'empty', (array, options) ->
+Swag.registerHelper 'empty', (array, options) ->
     if array.length <= 0 then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'any', (array, options) ->
+Swag.registerHelper 'any', (array, options) ->
     if array.length > 0 then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'inArray', (array, value, options) ->
+Swag.registerHelper 'inArray', (array, value, options) ->
     if value in array then options.fn(@) else options.inverse(@)
 
-Handlebars.registerHelper 'eachIndex', (array, options) ->
+Swag.registerHelper 'eachIndex', (array, options) ->
     result = ''
 
     for value, index in array
@@ -87,7 +87,7 @@ Handlebars.registerHelper 'eachIndex', (array, options) ->
 
     result
 
-Handlebars.registerHelper 'eachProperty', (obj, options) ->
+Swag.registerHelper 'eachProperty', (obj, options) ->
     result = ''
 
     for key, value of obj
