@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'is', ->
     describe '{{#is bender "great"}} \n
         Kiss my shiny metal ass! \n

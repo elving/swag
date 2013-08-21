@@ -6,10 +6,32 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
     <!-- Browser -->
     <script src="../path_to/handlebars.js"></script>
     <script src="../path_to/swag.js"></script>
+    <script>Swag.registerHelpers(Handlebars);</script>
 
     // Node
     Handlebars = require('handlebars');
     Swag = require('swag');
+
+    Swag.registerHelpers(Handlebars);
+
+## Swag.registerHelpers
+This method will register all Swag helpers with the instance of Handlebars you pass to it.
+
+    <script src="../path_to/handlebars.js"></script>
+    <script src="../path_to/swag.js"></script>
+    <script>Swag.registerHelpers(window.Handlebars);</script>
+
+If you don't pass any instance of Handlebars, Swag will use the Handlebars
+instace available in the global context.
+
+    <script src="../path_to/handlebars.js"></script>
+    <script src="../path_to/swag.js"></script>
+    <script>
+        // Will use window.Handlebars or Ember.Handlebars if you're using Ember.
+        Swag.registerHelpers();
+    </script>
+
+This method must be called in order to use Swag helpers in you Handlebars templates.
 
 ## Strings
 

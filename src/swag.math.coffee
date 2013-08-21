@@ -1,20 +1,20 @@
-Swag.registerHelper 'add', (value, addition) ->
+Swag.addHelper 'add', (value, addition) ->
     value + addition
 
-Swag.registerHelper 'subtract', (value, substraction) ->
+Swag.addHelper 'subtract', (value, substraction) ->
     value - substraction
 
-Swag.registerHelper 'divide', (value, divisor) ->
+Swag.addHelper 'divide', (value, divisor) ->
     value / divisor
 
-Swag.registerHelper 'multiply', (value, multiplier) ->
+Swag.addHelper 'multiply', (value, multiplier) ->
     value * multiplier
 
-Swag.registerHelper 'floor', (value) ->
+Swag.addHelper 'floor', (value) ->
     Math.floor value
 
-Swag.registerHelper 'ceil', (value) ->
+Swag.addHelper 'ceil', (value) ->
     Math.ceil value
 
-Swag.registerHelper 'round', (value) ->
+Swag.addHelper 'round', (value) ->
     Math.round value

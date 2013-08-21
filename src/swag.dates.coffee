@@ -82,16 +82,16 @@ Dates.abbreviatedMonths = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug
 Dates.fullMonths = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 
 # Port of formatDate-js library - https://github.com/michaelbaldry/formatDate-js
-Swag.registerHelper 'formatDate', (date, format) ->
+Swag.addHelper 'formatDate', (date, format) ->
     date = new Date date
     Dates.format date, format
 
-Swag.registerHelper 'now', (format) ->
+Swag.addHelper 'now', (format) ->
     date = new Date()
     if Utils.isUndefined(format) then date else Dates.format(date, format)
 
 # Modified version of - http://stackoverflow.com/a/3177838
-Swag.registerHelper 'timeago', (date) ->
+Swag.addHelper 'timeago', (date) ->
     date = new Date date
     seconds = Math.floor((new Date() - date) / 1000)
 

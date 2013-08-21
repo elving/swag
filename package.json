@@ -1,6 +1,6 @@
 {
     "name": "swag",
-    "version": "0.2.8",
+    "version": "0.3.0",
     "author": "Elving Rodriguez <elving.pr@gmail.com>",
     "description": "Give your handlebars.js templates some swag son!",
     "main": "./index.js",

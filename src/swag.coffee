@@ -1,20 +1,36 @@
 ###
-    Swag v0.2.8 <http://elving.github.com/swag/>
+    Swag v0.3.0 <http://elving.github.com/swag/>
     Copyright 2012 Elving Rodriguez <http://elving.me/>
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
 
 if window?
-    Handlebars = window.Handlebars
     window.Swag = Swag = {}
-    Swag.registerHelper = ->
-        if window.Ember
-            Ember.Handlebars.helper arguments
-        else
-            Handlebars.registerHelper arguments
 
-if module?
-    Handlebars = require 'handlebars'
+else if module?
     module.exports = Swag = {}
-    Swag.registerHelper = ->
-        Handlebars.registerHelper arguments
+
+Swag.helpers = {}
+
+Swag.addHelper = (name, helper) ->
+    Swag.helpers[name] = helper
+
+Swag.registerHelpers = (localHandlebars) ->
+    if window?
+        if window.Ember?
+            Swag.Handlebars = Ember.Handlebars
+        else
+            Swag.Handlebars = window.Handlebars
+    else if module?
+        Swag.Handlebars = require 'handlebars'
+    else if localHandlebars
+        Swag.Handlebars = localHandlebars
+
+    Swag.registerHelper = (name, helper) ->
+        if window? and window.Ember
+            Swag.Handlebars.helper name, helper
+        else
+            Swag.Handlebars.registerHelper name, helper
+
+    for name, helper of Swag.helpers
+        Swag.registerHelper name, helper

@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'lowercase', ->
     describe '{{lowercase string}}', ->
         it 'should return the string in lowercase', ->

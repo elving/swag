@@ -1,32 +1,32 @@
-Swag.registerHelper 'lowercase', (str) ->
-        str.toLowerCase()
+Swag.addHelper 'lowercase', (str) ->
+    str.toLowerCase()
 
-Swag.registerHelper 'uppercase', (str) ->
+Swag.addHelper 'uppercase', (str) ->
     str.toUpperCase()
 
-Swag.registerHelper 'capitalizeFirst', (str) ->
+Swag.addHelper 'capitalizeFirst', (str) ->
     str.charAt(0).toUpperCase() + str.slice(1)
 
-Swag.registerHelper 'capitalizeEach', (str) ->
+Swag.addHelper 'capitalizeEach', (str) ->
     str.replace /\w\S*/g, (txt) -> txt.charAt(0).toUpperCase() + txt.substr(1)
 
-Swag.registerHelper 'titleize', (str) ->
+Swag.addHelper 'titleize', (str) ->
     title = str.replace /[ \-_]+/g, ' '
     words = title.match(/\w+/g)
     capitalize = (word) -> word.charAt(0).toUpperCase() + word.slice(1)
     (capitalize word for word in words).join ' '
 
-Swag.registerHelper 'sentence', (str) ->
+Swag.addHelper 'sentence', (str) ->
     str.replace /((?:\S[^\.\?\!]*)[\.\?\!]*)/g, (txt) -> txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
 
-Swag.registerHelper 'reverse', (str) ->
+Swag.addHelper 'reverse', (str) ->
     str.split('').reverse().join('')
 
-Swag.registerHelper 'truncate', (str, length, omission) ->
+Swag.addHelper 'truncate', (str, length, omission) ->
     omission = '' if Utils.isUndefined omission
     if str.length > length then str.substring(0, length - omission.length) + omission else str
 
-Swag.registerHelper 'center', (str, spaces) ->
+Swag.addHelper 'center', (str, spaces) ->
     space = ''
     i = 0
 
@@ -36,5 +36,5 @@ Swag.registerHelper 'center', (str, spaces) ->
 
     "#{space}#{str}#{space}"
 
-Swag.registerHelper 'newLineToBr', (str) ->
+Swag.addHelper 'newLineToBr', (str) ->
     str.replace /\r?\n|\r/g, '<br>'
