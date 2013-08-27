@@ -21,3 +21,9 @@ Swag.addHelper 'or', (testA, testB, options) ->
 
 Swag.addHelper 'and', (testA, testB, options) ->
     if testA and testB then options.fn(@) else options.inverse(@)
+
+Swag.addHelper 'isnt_or', (testA, testB, options) ->
+    unless testA or testB then options.fn(@) else options.inverse(@)
+    
+Swag.addHelper 'isnt_and', (testA, testB, options) ->
+    unless testA and testB then options.fn(@) else options.inverse(@)
