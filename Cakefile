@@ -145,3 +145,7 @@ task 'test', ->
         mocha.addFile "test/#{file}" unless file is 'mocha.opts' or file is 'templates'
 
     mocha.run()
+
+task 'build:test', ->
+    invoke 'build'
+    invoke 'test'

@@ -7,6 +7,8 @@ Swag = require '../lib/swag'
 _log = if console then console.log else ->
 _log.history = []
 
+Swag.registerHelpers Handlebars
+
 console.log = ->
     _log.history.push.apply(_log.history, arguments)
     _log.apply(console, arguments)

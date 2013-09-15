@@ -1,0 +1,13 @@
+{
+    "name": "swag",
+    "version": "0.3.1",
+    "main": "lib/swag.js",
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components"
+    ],
+    "dependencies": {
+        "handlebars.js": "~1.0.0"
+    }
+}

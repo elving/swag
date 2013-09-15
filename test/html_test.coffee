@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'ul', ->
     describe '{{#ul list class="list"}} \n
         {{this}} \n

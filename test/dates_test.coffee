@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'formatDate', ->
     describe '{{formatDate date format}}', ->
         it 'should return the date formated into a string given a specified format.', ->

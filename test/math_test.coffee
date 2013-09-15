@@ -6,6 +6,8 @@ Swag = require '../lib/swag'
 context =
     value: 5
 
+Swag.registerHelpers Handlebars
+
 describe 'add', ->
     describe '{{add value 5}}', ->
         it 'should return the sum of two numbers.', ->

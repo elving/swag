@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'default', ->
     describe '{{default title "Not title available."}}', ->
         it 'should provide a default or fallback value if a value doesn\'t exist.', ->

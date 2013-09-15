@@ -1,22 +1,22 @@
-Handlebars.registerHelper 'toFixed', (number, digits) ->
+Swag.addHelper 'toFixed', (number, digits) ->
     digits = 0 if Utils.isUndefined(digits)
     number.toFixed digits
 
-Handlebars.registerHelper 'toPrecision', (number, precision) ->
+Swag.addHelper 'toPrecision', (number, precision) ->
     precision = 1 if Utils.isUndefined(precision)
     number.toPrecision precision
 
-Handlebars.registerHelper 'toExponential', (number, fractions) ->
+Swag.addHelper 'toExponential', (number, fractions) ->
     fractions = 0 if Utils.isUndefined(fractions)
     number.toExponential fractions
 
-Handlebars.registerHelper 'toInt', (number) ->
+Swag.addHelper 'toInt', (number) ->
     parseInt number, 10
 
-Handlebars.registerHelper 'toFloat', (number) ->
+Swag.addHelper 'toFloat', (number) ->
     parseFloat number
 
-Handlebars.registerHelper 'digitGrouping', (number, separator) ->
+Swag.addHelper 'digitGrouping', (number, separator) ->
     separator = ',' if Utils.isUndefined(separator)
     number.toString().replace /(\d)(?=(\d\d\d)+(?!\d))/g, "$1#{separator}"
 

@@ -1,8 +1,8 @@
-Handlebars.registerHelper 'default', (value, defaultValue) ->
+Swag.addHelper 'default', (value, defaultValue) ->
     value ? defaultValue
 
-Handlebars.registerHelper 'partial', (name, data) ->
+Swag.addHelper 'partial', (name, data) ->
     partial = Swag.Config.partialsPath + name
     data = if Utils.isUndefined(data) then {} else data
-    Handlebars.registerPartial(name, require partial) unless Handlebars.partials[name]?
-    Utils.safeString Handlebars.partials[name](data)
+    Swag.Handlebars.registerPartial(name, require partial) unless Swag.Handlebars.partials[name]?
+    Utils.safeString Swag.Handlebars.partials[name](data)

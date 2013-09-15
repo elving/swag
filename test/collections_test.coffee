@@ -15,6 +15,8 @@ context =
         'Scruffy'
     ]
 
+Swag.registerHelpers Handlebars
+
 describe 'first', ->
     describe '{{first collection}}', ->
         it 'should return the first item in a collection.', ->

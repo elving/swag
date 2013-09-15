@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'inflect', ->
     describe '{{inflect enemies "enemy" "enemies"}}', ->
         it 'should return the plural or singular form of a word based on a value.', ->

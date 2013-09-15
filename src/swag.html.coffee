@@ -5,17 +5,17 @@ HTML.parseAttributes = (hash) ->
         "#{key}=\"#{hash[key]}\""
     ).join ' '
 
-Handlebars.registerHelper 'ul', (context, options) ->
+Swag.addHelper 'ul', (context, options) ->
     "<ul #{HTML.parseAttributes(options.hash)}>" + context.map((item) ->
         "<li>#{options.fn(item)}</li>"
     ).join('\n') + "</ul>"
 
-Handlebars.registerHelper 'ol', (context, options) ->
+Swag.addHelper 'ol', (context, options) ->
     "<ol #{HTML.parseAttributes(options.hash)}>" + context.map((item) ->
         "<li>#{options.fn(item)}</li>"
     ).join('\n') + "</ol>"
 
-Handlebars.registerHelper 'br', (count, options) ->
+Swag.addHelper 'br', (count, options) ->
     br = '<br>'
 
     unless Utils.isUndefined count

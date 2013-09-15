@@ -3,6 +3,8 @@ require 'should'
 Handlebars = require 'handlebars'
 Swag = require '../lib/swag'
 
+Swag.registerHelpers Handlebars
+
 describe 'toFixed', ->
     describe '{{toFixed value}}', ->
         it 'should return the value rounded to the nearest integer.', ->

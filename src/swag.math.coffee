@@ -1,20 +1,20 @@
-Handlebars.registerHelper 'add', (value, addition) ->
+Swag.addHelper 'add', (value, addition) ->
     value + addition
 
-Handlebars.registerHelper 'subtract', (value, substraction) ->
+Swag.addHelper 'subtract', (value, substraction) ->
     value - substraction
 
-Handlebars.registerHelper 'divide', (value, divisor) ->
+Swag.addHelper 'divide', (value, divisor) ->
     value / divisor
 
-Handlebars.registerHelper 'multiply', (value, multiplier) ->
+Swag.addHelper 'multiply', (value, multiplier) ->
     value * multiplier
 
-Handlebars.registerHelper 'floor', (value) ->
+Swag.addHelper 'floor', (value) ->
     Math.floor value
 
-Handlebars.registerHelper 'ceil', (value) ->
+Swag.addHelper 'ceil', (value) ->
     Math.ceil value
 
-Handlebars.registerHelper 'round', (value) ->
+Swag.addHelper 'round', (value) ->
     Math.round value
