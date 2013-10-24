@@ -7,12 +7,12 @@ HTML.parseAttributes = (hash) ->
 
 Swag.addHelper 'ul', (context, options) ->
     "<ul #{HTML.parseAttributes(options.hash)}>" + context.map((item) ->
-        "<li>#{options.fn(item)}</li>"
+        "<li>#{options.fn(Utils.result item)}</li>"
     ).join('\n') + "</ul>"
 
 Swag.addHelper 'ol', (context, options) ->
     "<ol #{HTML.parseAttributes(options.hash)}>" + context.map((item) ->
-        "<li>#{options.fn(item)}</li>"
+        "<li>#{options.fn(Utils.result item)}</li>"
     ).join('\n') + "</ol>"
 
 Swag.addHelper 'br', (count, options) ->
@@ -20,8 +20,9 @@ Swag.addHelper 'br', (count, options) ->
 
     unless Utils.isUndefined count
         i = 0
+        count = Utils.result count
 
-        while i < count - 1
+        while i < (parseFloat count) - 1
             br += '<br>'
             i++
 
