@@ -1,5 +1,5 @@
 Swag.addHelper 'default', (value, defaultValue) ->
-    unless (Utils.isUndefined value) and (Utils.isUndefined defaultValue)
+    unless (Utils.isHandlebarsSpecific value) and (Utils.isHandlebarsSpecific defaultValue)
         value = Utils.result value
         defaultValue = Utils.result defaultValue
         value ? defaultValue

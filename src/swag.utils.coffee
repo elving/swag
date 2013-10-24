@@ -1,8 +1,11 @@
 Utils = {}
 
-Utils.isUndefined = (value) ->
-    (value is 'undefined' or value is null) or
+Utils.isHandlebarsSpecific = (value) ->
     (value and value.fn?) or (value and value.hash?)
+
+Utils.isUndefined = (value) ->
+    (value is undefined or value is null) or
+    Utils.isHandlebarsSpecific value
 
 Utils.safeString = (str) ->
     new Swag.Handlebars.SafeString str

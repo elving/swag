@@ -135,16 +135,16 @@ Swag.addHelper 'lengthEqual', (array, length, options) ->
         Utils.err '{{lengthEqual}} takes two arguments (array, number).'
 
 Swag.addHelper 'empty', (array, options) ->
-    unless Utils.isUndefined array
+    unless Utils.isHandlebarsSpecific array
         array = Utils.result array
-        if array.length <= 0 then options.fn this else options.inverse this
+        if not array or array.length <= 0 then options.fn this else options.inverse this
     else
         Utils.err '{{empty}} takes one argument (array).'
 
 Swag.addHelper 'any', (array, options) ->
-    unless Utils.isUndefined array
+    unless Utils.isHandlebarsSpecific array
         array = Utils.result array
-        if array.length > 0 then options.fn this else options.inverse this
+        if array and array.length > 0 then options.fn this else options.inverse this
     else
         Utils.err '{{any}} takes one argument (array).'
 
@@ -169,8 +169,8 @@ Swag.addHelper 'eachIndex', (array, options) ->
         Utils.err '{{eachIndex}} takes one argument (array).'
 
 Swag.addHelper 'eachProperty', (obj, options) ->
-    unless Utils.isUndefined array
-        array = Utils.result array
+    unless Utils.isUndefined obj
+        obj = Utils.result obj
         result = ''
 
         for key, value of obj
