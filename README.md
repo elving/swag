@@ -33,6 +33,28 @@ instace available in the global context.
 
 This method must be called in order to use Swag helpers in you Handlebars templates.
 
+## Context
+If you have functions in your template's context, Swag will execute the function and use the returned value inside the helper:
+
+    context = {
+        firstName: function() { return 'elving'; }
+        lastName: 'Rodríguez'
+    };
+    
+    {{uppercase firstName}} {{lowercase lastName}}
+    
+    ELVING rodríguez
+    
+If you pass a string to a Number, Math or any helper that needs a number to work, Swag will try to convert it to a number and use it:    
+
+    context = {
+        age: '24'
+    };
+    
+    {{add age '1'}}
+    
+    25
+            
 ## Strings
 
 #### lowercase
@@ -1061,18 +1083,20 @@ Usage:
 
 #### partial
 
-Provides an easy way to register and use partials inside your templates. This helper only works if you define your templates as common.js modules, since it uses the common.js `require` function to find and register your templates with `Handlebars.registerPartial`. It was created with [brunch](http://brunch.io) in mind (which I use a lot), because brunch automatically wraps your scripts and templates in common.js modules to use in the browser.
+Provides an easy way to register and use partials from inside your templates. It supports AMD and CommonJS if you are writing your templates as modules. If your module returns a string, set `Swag.Config.precompiledTemplates = false` so that Swag appends `!text` before your module's path for AMD. If all of your templates are on the same path you can override `Swag.Config.partialsPath = 'path/'` and only use your template's name as your partial name. If your templates are on different paths then use the full path as your partial's name.
+
+If you are not using AMD or CommonJS modules you can pass a third argument that will contain your template. If the argument is a function, Swag will treat it as a compiled Handlebar template.
 
 Parameters:
 
     name [string] - The name or path of the file in which your template is define. You can tell swag where your templates folder is by overriding Swag.Config.partialsPath. (Required)
 
     data [int|string|collection] - The data you want to use inside the partial. (Optional)
+    
+    template [string|function] - The template for you partial. Pass this if you are not using AMD or CommonJS modules. (Optional)
 
 Usage:
 
-    # Path to your templates from where yo override Swag.Config.partialsPath
-    # The path must finish with a forward slash '/'
     Swag.Config.partialsPath = '../views/templates/'
 
     collection = ['Professor Farnsworth', 'Fry', 'Bender']
@@ -1086,4 +1110,14 @@ Usage:
     </p>
 
     <p>Bender, Fry, Professor Farnsworth</p>
+    
+<br>
+    
+    # Your template data
+    context = 
+        data: ['Professor Farnsworth', 'Fry', 'Bender']
+        template: '<p>{{sort this}}</p>'
+
+    # Your template
+    {{partial "planet_express" data template}}
 
