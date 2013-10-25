@@ -17,6 +17,9 @@ Utils.trim = (str) ->
 Utils.isFunc = (value) ->
     typeof value is 'function'
 
+Utils.isString = (value) ->
+    typeof value is 'string'
+
 Utils.result = (value) ->
     if Utils.isFunc value then value() else value
 
