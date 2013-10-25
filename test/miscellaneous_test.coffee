@@ -17,7 +17,21 @@ describe 'default', ->
 Swag.Config.partialsPath = '../test/templates/'
 
 describe 'partial', ->
-    describe '{{partial "some_template"}}', ->
+    beforeEach ->
+        delete Swag.Handlebars.partials["some_template"]
+
+    describe '{{partial name data template}}', ->
+        it 'should register and render a partial.', ->
+            context =
+                data: text: 'yay'
+                template: 'A partial {{text}}.'
+
+            source   = '{{partial "some_template" data template}}'
+            template = Handlebars.compile(source)
+
+            template(context).should.equal 'A partial yay.'
+
+    describe '{{partial name}}', ->
         it 'should register and render a partial.', ->
             source   = '{{partial "some_template"}}'
             template = Handlebars.compile(source)
