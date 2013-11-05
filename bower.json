@@ -8,6 +8,6 @@
         "bower_components"
     ],
     "dependencies": {
-        "handlebars.js": "~1.0.0"
+        "handlebars.js": "1.1.x"
     }
 }
