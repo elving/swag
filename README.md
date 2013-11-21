@@ -1,5 +1,7 @@
 # Swag
 
+[![NPM](https://nodei.co/npm/swag.png?downloads=true&stars=true)](https://nodei.co/npm/swag/)
+
 Swag is a growing collection of helpers for [Handlebars.js](https://github.com/wycats/handlebars.js/). Give your handlebars.js templates some swag son!
 
 ## Usage
