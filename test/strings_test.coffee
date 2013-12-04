@@ -91,3 +91,11 @@ describe 'newLineToBr', ->
             template = Handlebars.compile(source)
 
             template().should.equal 'Bender <br> should <br> not <br> be allowed on tv.'
+
+describe 'sanitize', ->
+    describe '{{sanitize string}}', ->
+        it 'should sanitize the string for safe use in urls and file names', ->
+            source   = '{{sanitize "Sex & The City 2"}}'
+            template = Handlebars.compile(source)
+
+            template().should.equal 'Sex---The-City-2'
