@@ -90,3 +90,33 @@ describe 'digitGrouping', ->
             context  = value: 2222222
 
             template(context).should.equal '2-222-222'
+
+describe 'toOrdinal', ->
+    describe '{{toOrdinal value}}', ->
+        it 'should return an ordinal number ending with st.', ->
+            source   = '{{toOrdinal value}}'
+            template = Handlebars.compile(source)
+            context  = value: '21'
+
+            template(context).should.equal '21st'
+
+        it 'should return an ordinal number ending with nd.', ->
+            source   = '{{toOrdinal value}}'
+            template = Handlebars.compile(source)
+            context  = value: '2'
+
+            template(context).should.equal '2nd'
+
+        it 'should return an ordinal number ending with rd.', ->
+            source   = '{{toOrdinal value}}'
+            template = Handlebars.compile(source)
+            context  = value: '103'
+
+            template(context).should.equal '103rd'
+
+        it 'should return an ordinal number ending with th.', ->
+            source   = '{{toOrdinal value}}'
+            template = Handlebars.compile(source)
+            context  = value: '12'
+
+            template(context).should.equal '12th'
