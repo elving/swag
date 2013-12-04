@@ -184,6 +184,18 @@ Usage:
 
     Bender <br> should <br> not <br> be allowed on tv.
 
+#### sanitize
+
+Sanitizes strings for safe use in URLs and file names.
+
+Parameters: none.
+
+Usage:
+
+    {{{sanitize "Sex & The City 2"}}}
+
+    Sex---The-City-2
+
 ## Collections
 
 #### first
@@ -707,6 +719,20 @@ Usage:
     {{digitGrouping value}}
 
     2,222,222
+
+#### toOrdinal
+
+Adds ordinal suffix to a number.
+
+Parameters: none.
+
+Usage:
+
+    value = 22
+
+    {{toOrdinal value}}
+
+    22nd
 
 ####
 
