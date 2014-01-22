@@ -2,7 +2,7 @@ Swag.addHelper 'default', (value, defaultValue) ->
     unless (Utils.isHandlebarsSpecific value) and (Utils.isUndefined defaultValue)
         value = Utils.result value
         defaultValue = Utils.result defaultValue
-        value ? defaultValue
+        value or defaultValue
     else
         Utils.err '{{default}} takes two arguments (string|number, string|number).'
 
