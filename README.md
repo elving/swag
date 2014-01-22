@@ -1123,3 +1123,7 @@ Usage:
     # Your template
     {{partial "planet_express" data template}}
 
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elving/swag/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
