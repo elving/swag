@@ -19,7 +19,7 @@
         "handlebars": ">=1.0.12"
     },
     "devDependencies" : {
-        "coffee-script": ">=1.6.3",
+        "coffee-script": "~1.6.3",
         "uglify-js": ">=2.3.6",
         "mocha": ">=1.10.0",
         "should": ">=1.2.2"
