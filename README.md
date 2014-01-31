@@ -184,6 +184,20 @@ Usage:
 
     Bender <br> should <br> not <br> be allowed on tv.
 
+#### sanitize
+
+Sanitizes strings for safe use in URLs and file names.
+
+Parameters:
+
+    replacement [string] - A replacement character (Optional)
+
+Usage:
+
+    {{{sanitize "Sex & The City 2" "-"}}}
+
+    Sex---The-City-2
+
 ## Collections
 
 #### first
