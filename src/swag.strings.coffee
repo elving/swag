@@ -79,3 +79,11 @@ Swag.addHelper 'newLineToBr', (str) ->
         str.replace /\r?\n|\r/g, '<br>'
     else
         Utils.err '{{newLineToBr}} takes one argument (string).'
+
+Swag.addHelper 'sanitize', (str, replaceWith) ->
+    unless Utils.isUndefined str
+        str = Utils.result str
+        replaceWith = '-' if Utils.isUndefined replaceWith
+        str.replace /[^a-z0-9]/gi, replaceWith
+    else
+        Utils.err '{{sanitize}} takes one argument (string).'
