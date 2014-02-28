@@ -42,21 +42,21 @@ If you have functions in your template's context, Swag will execute the function
         firstName: function() { return 'elving'; }
         lastName: 'Rodríguez'
     };
-    
+
     {{uppercase firstName}} {{lowercase lastName}}
-    
+
     ELVING rodríguez
-    
-If you pass a string to a Number, Math or any helper that needs a number to work, Swag will try to convert it to a number and use it:    
+
+If you pass a string to a Number, Math or any helper that needs a number to work, Swag will try to convert it to a number and use it:
 
     context = {
         age: '24'
     };
-    
+
     {{add age '1'}}
-    
+
     25
-            
+
 ## Strings
 
 #### lowercase
@@ -1103,12 +1103,14 @@ Provides an easy way to register and use partials from inside your templates. It
 
 If you are not using AMD or CommonJS modules you can pass a third argument that will contain your template. If the argument is a function, Swag will treat it as a compiled Handlebar template.
 
+If you are using `Ember`, the `partial` helper will not be registered to avoid collisions with the `partial` helper from `Ember`.
+
 Parameters:
 
     name [string] - The name or path of the file in which your template is define. You can tell swag where your templates folder is by overriding Swag.Config.partialsPath. (Required)
 
     data [int|string|collection] - The data you want to use inside the partial. (Optional)
-    
+
     template [string|function] - The template for you partial. Pass this if you are not using AMD or CommonJS modules. (Optional)
 
 Usage:
@@ -1126,11 +1128,11 @@ Usage:
     </p>
 
     <p>Bender, Fry, Professor Farnsworth</p>
-    
+
 <br>
-    
+
     # Your template data
-    context = 
+    context =
         data: ['Professor Farnsworth', 'Fry', 'Bender']
         template: '<p>{{sort this}}</p>'
 
