@@ -1,5 +1,5 @@
 Swag.addHelper 'is', (value, test, options) ->
-    unless (Utils.isHandlebarsSpecific value) and (Utils.isHandlebarsSpecific value)
+    unless (Utils.isHandlebarsSpecific value) and (Utils.isHandlebarsSpecific test)
         value = Utils.result value
         test = Utils.result test
         if value and value is test then options.fn this else options.inverse this
