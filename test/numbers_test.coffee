@@ -74,6 +74,23 @@ describe 'toFloat', ->
 
             template(context).should.equal '3.1'
 
+describe 'toDuration', ->
+    describe '{{toDuration value}}', ->
+        it 'should return a <days> days, <hours> hours, <minutes> minutes, <seconds> seconds formatted string from an integer.', ->
+            source   = '{{toDuration value}}'
+            template = Handlebars.compile(source)
+            context  = value: 131696
+
+            template(context).should.equal '1 day, 12 hours, 34 minutes, 56 seconds'
+
+    describe '{{toDuration value humanize}}', ->
+        it 'should return a hours:minutes:seconds formatted string from a string representation of an integer.', ->
+            source   = '{{toDuration value humanize}}'
+            template = Handlebars.compile(source)
+            context  = value: '3665', humanize: false
+
+            template(context).should.equal '01:01:05'
+
 describe 'digitGrouping', ->
     describe '{{digitGrouping value}}', ->
         it 'should add commas to a number.', ->

@@ -706,6 +706,28 @@ Usage:
 
     22.2
 
+#### toDuration
+
+Returns either:
+1) ('days' day(s)), 'hours':'minutes':'seconds' or
+2) ('days' day(s)), 'hours' hours, 'minutes' minutes, 'seconds' seconds formated string.
+
+Parameters:
+
+    humanize [boolean] = Whether or not to display the string in the 1) or 2) format. Defaults to true.
+
+Usage:
+
+    {{toDuration 131696, true}}
+    {{toDuration '131696'}}
+    {{toDuration 3665}}
+    {{toDuration '3665' false}}
+
+    '1 day, 12 hours, 34 minutes, 56 seconds'
+    '1 day, 12:34:56'
+    '1 hour, 1 minute, 5 seconds'
+    '01:01:05'
+
 #### digitGrouping
 
 Adds thousands separator to a number.
