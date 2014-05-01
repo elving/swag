@@ -1,45 +1,31 @@
 Swag.addHelper 'toFixed', (number, digits) ->
-    unless Utils.isUndefined number
-        number = parseFloat Utils.result number
-        digits = if Utils.isUndefined digits then 0 else Utils.result digits
-        number.toFixed digits
-    else
-        Utils.err '{{toFixed}} takes at least one argument (number).'
+    number = parseFloat number
+    digits = if Utils.isUndefined digits then 0 else digits
+    number.toFixed digits
+, 'number'
 
 Swag.addHelper 'toPrecision', (number, precision) ->
-    unless Utils.isUndefined number
-        number = parseFloat Utils.result number
-        precision = if Utils.isUndefined precision then 1 else Utils.result precision
-        number.toPrecision precision
-    else
-        Utils.err '{{toPrecision}} takes at least one argument (number).'
+    number = parseFloat number
+    precision = if Utils.isUndefined precision then 1 else precision
+    number.toPrecision precision
+, 'number'
 
 Swag.addHelper 'toExponential', (number, fractions) ->
-    unless Utils.isUndefined number
-        number = parseFloat Utils.result number
-        fractions = if Utils.isUndefined fractions then 0 else Utils.result fractions
-        number.toExponential fractions
-    else
-        Utils.err '{{toExponential}} takes at least one argument (number).'
+    number = parseFloat number
+    fractions = if Utils.isUndefined fractions then 0 else fractions
+    number.toExponential fractions
+, 'number'
 
 Swag.addHelper 'toInt', (number) ->
-    unless Utils.isUndefined number
-        number = Utils.result number
-        parseInt number, 10
-    else
-        Utils.err '{{toInt}} takes one argument (number).'
+    parseInt number, 10
+, 'number'
 
 Swag.addHelper 'toFloat', (number) ->
-    unless Utils.isUndefined number
-        number = Utils.result number
-        parseFloat number
-    else
-        Utils.err '{{toFloat}} takes one argument (number).'
+    parseFloat number
+, 'number'
 
 Swag.addHelper 'digitGrouping', (number, separator) ->
-    unless Utils.isUndefined number
-        number = parseFloat Utils.result number
-        separator = if Utils.isUndefined separator then ',' else Utils.result separator
-        number.toString().replace /(\d)(?=(\d\d\d)+(?!\d))/g, "$1#{separator}"
-    else
-        Utils.err '{{digitGrouping}} takes at least one argument (number).'
+    number = parseFloat number
+    separator = if Utils.isUndefined separator then ',' else separator
+    number.toString().replace /(\d)(?=(\d\d\d)+(?!\d))/g, "$1#{separator}"
+, 'number'
