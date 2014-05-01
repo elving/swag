@@ -25,3 +25,11 @@ Utils.result = (value) ->
 
 Utils.err = (msg) ->
     throw new Error msg
+
+Utils.verify = ->
+    args = Array.prototype.slice.apply(arguments)
+    name = args.shift()
+    fnArg = Array.prototype.slice.apply(args.shift()).slice(0, args.length)
+    for arg, i in fnArg
+        Utils.err '{{'+name+'}} takes '+args.length+' arguments '+args.join(', ')+'.' if Utils.isUndefined(arg)
+
