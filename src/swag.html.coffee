@@ -20,7 +20,6 @@ Swag.addHelper 'br', (count, options) ->
 
     unless Utils.isUndefined count
         i = 0
-        count = Utils.result count
 
         while i < (parseFloat count) - 1
             br += '<br>'
