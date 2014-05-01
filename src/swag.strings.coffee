@@ -31,6 +31,8 @@ Swag.addHelper 'titleize', (str) ->
         str = Utils.result str
         title = str.replace /[ \-_]+/g, ' '
         words = title.match(/\w+/g)
+        if words is null
+          words = []
         capitalize = (word) -> word.charAt(0).toUpperCase() + word.slice(1)
         (capitalize word for word in words).join ' '
     else
