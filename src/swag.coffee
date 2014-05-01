@@ -26,7 +26,7 @@ Swag.addHelper = (name, helper, argTypes = []) ->
             unless Utils.isHandlebarsSpecific(arg)
                 arg = Utils.result(arg)
             resultArgs.push(arg)
-        helper.apply @, args
+        helper.apply @, resultArgs
 
 Swag.registerHelpers = (localHandlebars) ->
     if localHandlebars
