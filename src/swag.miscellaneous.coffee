@@ -1,15 +1,10 @@
 Swag.addHelper 'default', (value, defaultValue) ->
-    value = Utils.result value
-    defaultValue = Utils.result defaultValue
     value or defaultValue
 , 'safe:string|number', 'string|number'
 
 unless Ember?
     Swag.addHelper 'partial', (name, data, template) ->
-        name = Utils.result name
-        data = Utils.result data
         path = Swag.Config.partialsPath + name
-        template = Utils.result template unless Utils.isUndefined template
 
         unless Swag.Handlebars.partials[name]?
             if !Utils.isUndefined template

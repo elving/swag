@@ -16,8 +16,17 @@ Swag.addHelper = (name, helper, argTypes = []) ->
     unless argTypes instanceof Array
         argTypes = [argTypes]
     Swag.helpers[name] = ->
+        # Verify all required arguments have been supplied
         Utils.verify name, arguments, argTypes
-        helper.apply @, arguments
+
+        # Call all arguments which are functions to get their result
+        args = Array.prototype.slice.apply(arguments)
+        resultArgs = []
+        for arg in args
+            unless Utils.isHandlebarsSpecific(arg)
+                arg = Utils.result(arg)
+            resultArgs.push(arg)
+        helper.apply @, args
 
 Swag.registerHelpers = (localHandlebars) ->
     if localHandlebars
