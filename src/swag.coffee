@@ -12,8 +12,12 @@ else if module?
 
 Swag.helpers = {}
 
-Swag.addHelper = (name, helper) ->
-    Swag.helpers[name] = helper
+Swag.addHelper = (name, helper, argTypes = []) ->
+    unless argTypes instanceof Array
+        argTypes = [argTypes]
+    Swag.helpers[name] = ->
+        Utils.verify name, arguments, argTypes
+        helper.apply @, arguments
 
 Swag.registerHelpers = (localHandlebars) ->
     if localHandlebars
