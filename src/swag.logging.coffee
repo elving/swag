@@ -1,9 +1,7 @@
 Swag.addHelper 'log', (value) ->
-    unless Utils.isUndefined value
-        value = Utils.result value
-        console.log value
-    else
-        Utils.err '{{log}} takes one arguments (string|number|boolean|array|object).'
+    value = Utils.result value
+    console.log value
+, 'string|number|boolean|array|object'
 
 Swag.addHelper 'debug', (value) ->
     value = Utils.result value unless Utils.isUndefined value

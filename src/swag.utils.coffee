@@ -26,10 +26,11 @@ Utils.result = (value) ->
 Utils.err = (msg) ->
     throw new Error msg
 
-Utils.verify = ->
-    args = Array.prototype.slice.apply(arguments)
-    name = args.shift()
-    fnArg = Array.prototype.slice.apply(args.shift()).slice(0, args.length)
+Utils.verify = (name, fnArg, argTypes = []) ->
+    fnArg = Array.prototype.slice.apply(fnArg).slice(0, argTypes.length)
     for arg, i in fnArg
-        Utils.err '{{'+name+'}} takes '+args.length+' arguments '+args.join(', ')+'.' if Utils.isUndefined(arg)
-
+        msg = '{{'+name+'}} requires '+argTypes.length+' arguments '+argTypes.join(', ')+'.'
+        if argTypes[i].indexOf('safe:') > -1
+            Utils.err msg if Utils.isHandlebarsSpecific(arg)
+        else
+            Utils.err msg if Utils.isUndefined(arg)
