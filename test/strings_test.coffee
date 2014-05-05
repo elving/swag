@@ -45,6 +45,12 @@ describe 'titleize', ->
 
             template().should.equal 'Bender Should Not Be Allowed On Tv'
 
+        it 'should return empty string when string contains no words.', ->
+            source   = '{{titleize "..."}}'
+            template = Handlebars.compile(source)
+
+            template().should.equal ''
+
 describe 'sentence', ->
     describe '{{sentence string}}', ->
         it 'should capitalize the first word of each sentence in a string and convert the rest of the sentence to lowercase.', ->
