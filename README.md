@@ -15,6 +15,12 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
     Swag = require('swag');
 
     Swag.registerHelpers(Handlebars);
+    
+    //Usage with express3-handlebars
+    exphbs = require('express3-handlebars);
+    hbs = exphbs.create({
+       handlebars: Handlebars //Pass the Handlebar instance with Swag
+    });
 
 ## Swag.registerHelpers
 This method will register all Swag helpers with the instance of Handlebars you pass to it.
