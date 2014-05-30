@@ -36,3 +36,9 @@ Swag.addHelper 'round', (value) ->
     value = parseFloat value
     Math.round value
 , 'number'
+
+Swag.addHelper 'random', (lower, upper) ->
+    lower = parseInt lower
+    upper = parseInt upper
+    Math.floor Math.random() * (upper - lower + 1) + lower
+, ['number', 'number']
