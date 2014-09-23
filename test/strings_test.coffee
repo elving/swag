@@ -45,6 +45,12 @@ describe 'titleize', ->
 
             template().should.equal 'Bender Should Not Be Allowed On Tv'
 
+        it 'should return the string in title case from full upper case.', ->
+            source   = '{{titleize "BENDER SHOULD NOT BE ALLOWED ON TV"}}'
+            template = Handlebars.compile(source)
+
+            template().should.equal 'Bender Should Not Be Allowed On Tv'
+
         it 'should return empty string when string contains no words.', ->
             source   = '{{titleize "..."}}'
             template = Handlebars.compile(source)
