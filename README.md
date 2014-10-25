@@ -632,6 +632,23 @@ Usage:
     {{round value}}
 
     6
+#### random
+
+Returns a random number within the provided limit.
+
+Parameters: 
+    
+    lower [int] - The lower limit for the random number. (Required)
+    upper [int] - The upper limit for the random number. (Required)
+
+Usage:
+    
+    lower = 10
+    upper = 50
+    
+    {{random lower upper}}
+
+    27
 
 ## Numbers
 
