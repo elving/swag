@@ -20,7 +20,7 @@ describe 'log', ->
             template = Handlebars.compile(source)
 
             template()
-            _log.history.should.include 'Hi console :)'
+            _log.history.should.containEql 'Hi console :)'
 
 _log.history = []
 
@@ -32,4 +32,4 @@ describe 'debug', ->
             context  = 'elving'
 
             template(context)
-            _log.history.should.include 'elving'
+            _log.history.should.containEql 'elving'
