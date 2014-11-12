@@ -1,4 +1,4 @@
-# Swag
+# Swag [![Build Status](https://travis-ci.org/elving/swag.svg?branch=master)](https://travis-ci.org/elving/swag)
 
 [![NPM](https://nodei.co/npm/swag.png?downloads=true&stars=true)](https://nodei.co/npm/swag/)
 
