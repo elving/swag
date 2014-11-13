@@ -29,3 +29,7 @@ Swag.addHelper 'or', (testA, testB, options) ->
 Swag.addHelper 'and', (testA, testB, options) ->
     if testA and testB then options.fn this else options.inverse this
 , ['safe:string|number', 'safe:string|number']
+
+Swag.addHelper 'modulo', (value, modulo, options) ->
+    if (value % modulo) is 0 then options.fn this else options.inverse this
+, ['safe:string|number', 'safe:string|number']
