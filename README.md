@@ -1171,11 +1171,14 @@ images[array] - An array of images for which the layout has to be generated. (Re
 Eg: ["image1.jpg","image2.jpg","image3.jpg"]
 
 Usage:
-    <div class="photoset-grid" data-layout="{{photoLayout images}}" style="visibility:;">
+	```
+	 <div class="photoset-grid" data-layout="{{photoLayout images}}" style="visibility:;">
 		{{#unserialize images}}
 			<img src="/{{item}}" data-highres="/{{item}}">
 		{{/unserialize}}
-	</div>
+   	</div>
+   	```
+   	
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elving/swag/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
