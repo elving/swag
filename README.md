@@ -1162,7 +1162,20 @@ Usage:
     # Your template
     {{partial "planet_express" data template}}
 
+### PhotosetLayout
 
+Generates layout for [Photoset Grid](http://stylehatch.github.io/photoset-grid/) plugin to render Tumblr like image layouts.
+
+Parameters: 
+images[array] - An array of images for which the layout has to be generated. (Required)
+Eg: ["image1.jpg","image2.jpg","image3.jpg"]
+
+Usage:
+    <div class="photoset-grid" data-layout="{{photoLayout images}}" style="visibility:;">
+		{{#unserialize images}}
+			<img src="/{{item}}" data-highres="/{{item}}">
+		{{/unserialize}}
+	</div>
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elving/swag/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
