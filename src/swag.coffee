@@ -4,11 +4,11 @@
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
 
-if window?
-    window.Swag = Swag = {}
-
-else if module?
+if module?
     module.exports = Swag = {}
+
+else if window?
+    window.Swag = Swag = {}
 
 Swag.helpers = {}
 
