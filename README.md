@@ -888,6 +888,24 @@ Usage:
 
     Kiss my shiny metal ass!
 
+#### ternary
+
+Conditionally render one of 2 values given a boolean value.
+
+Parameters:
+
+    boolean ['boolean']
+    value1: ['object']
+    value2: ['object']
+
+Usage:
+
+    isMale = true;
+
+    {{ternary isMale "hey dude!" "hey dudette!"}}
+
+    hey dude!
+
 ## Dates
 
 #### formatDate

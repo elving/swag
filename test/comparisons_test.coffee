@@ -108,3 +108,12 @@ describe 'and', ->
             context  = great: yes, magnificent: yes
 
             template(context).should.equal 'Kiss my glorious metal ass!'
+
+describe 'ternary', ->
+    describe '{{ternary boolean value1 value2}}', ->
+        it 'renders the correct value given the boolean', ->
+            source   = '{{ternary !bool "TRUE" "FALSE"}}'
+            template = Handlebars.compile(source)
+            context  = bool: true
+
+            template(context).should.equal 'TRUE'
