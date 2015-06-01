@@ -1157,7 +1157,27 @@ Usage:
     # Your template
     {{partial "planet_express" data template}}
 
+#### setVar
 
+Sets a value on the provided context for use later.
+
+Parameters:
+
+    name [string] - The name of the value to assign to the context.
+    value [string|int] - The value to assign to the variable.
+    context [object] - The context to assign the value to.
+
+Usage:
+
+    {{setVar "newVariable" "value" this}}{{newValue}}
+
+    fromRemote = false
+    id = 5
+
+    {{ setVar "itemId" (ternary fromRemote (concat "remote-" id) (concat "local-" id)) }}{{itemId}}
+
+    value
+    local-5
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elving/swag/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
