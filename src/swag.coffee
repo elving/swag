@@ -33,18 +33,12 @@ Swag.registerHelpers = (localHandlebars) ->
         Swag.Handlebars = localHandlebars
     else
         if window?
-            if window.Ember?
-                Swag.Handlebars = Ember.Handlebars
-            else
-                Swag.Handlebars = window.Handlebars
+            Swag.Handlebars = window.Handlebars
         else if module?
             Swag.Handlebars = require 'handlebars'
 
     Swag.registerHelper = (name, helper) ->
-        if window? and window.Ember
-            Swag.Handlebars.helper name, helper
-        else
-            Swag.Handlebars.registerHelper name, helper
+        Swag.Handlebars.registerHelper name, helper
 
     for name, helper of Swag.helpers
         Swag.registerHelper name, helper

@@ -8,6 +8,10 @@
         "type": "git",
         "url": "https://github.com/elving/swag.git"
     },
+    "scripts": {
+        "test": "cake test",
+        "build": "rm -rf lib/* && cake build"
+    },
     "keywords": [
         "swag",
         "handlebars",
