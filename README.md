@@ -29,7 +29,7 @@ instace available in the global context.
     <script src="../path_to/handlebars.js"></script>
     <script src="../path_to/swag.js"></script>
     <script>
-        // Will use window.Handlebars or Ember.Handlebars if you're using Ember.
+        // Will use window.Handlebars.
         Swag.registerHelpers();
     </script>
 
@@ -1102,8 +1102,6 @@ Usage:
 Provides an easy way to register and use partials from inside your templates. It supports AMD and CommonJS if you are writing your templates as modules. If your module returns a string, set `Swag.Config.precompiledTemplates = false` so that Swag appends `!text` before your module's path for AMD. If all of your templates are on the same path you can override `Swag.Config.partialsPath = 'path/'` and only use your template's name as your partial name. If your templates are on different paths then use the full path as your partial's name.
 
 If you are not using AMD or CommonJS modules you can pass a third argument that will contain your template. If the argument is a function, Swag will treat it as a compiled Handlebar template.
-
-If you are using `Ember`, the `partial` helper will not be registered to avoid collisions with the `partial` helper from `Ember`.
 
 Parameters:
 
