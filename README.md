@@ -892,7 +892,7 @@ Usage:
 
 #### formatDate
 
-Formats a date into a string given a format. Accepts any value that can be passed to `new Date()`. This helper is a port of the [formatDate-js](http://https://github.com/michaelbaldry/formatDate-js) library by [Michael Baldry](https://github.com/michaelbaldry).
+Formats a date into a string given a format. Accepts any value that can be passed to `new Date()`. This helper is a port of the [formatDate-js](https://github.com/mikebaldry/formatDate-js) library by [Michael Baldry](https://github.com/mikebaldry).
 
 Parameters:
 
