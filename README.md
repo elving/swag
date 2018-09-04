@@ -1,5 +1,7 @@
 # Swag
 
+![Project frozen](https://img.shields.io/badge/status-frozen-blue.png) ![Project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg)
+
 [![NPM](https://nodei.co/npm/swag.png?downloads=true&stars=true)](https://nodei.co/npm/swag/)
 
 Swag is a growing collection of helpers for [Handlebars.js](https://github.com/wycats/handlebars.js/). Give your handlebars.js templates some swag son!
