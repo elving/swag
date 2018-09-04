@@ -1,6 +1,6 @@
 # Swag
 
-![Project frozen](https://img.shields.io/badge/status-frozen-blue.png) ![Project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg)
+![Project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg)
 
 [![NPM](https://nodei.co/npm/swag.png?downloads=true&stars=true)](https://nodei.co/npm/swag/)
 
