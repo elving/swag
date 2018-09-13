@@ -17,6 +17,12 @@ Swag is a growing collection of helpers for [Handlebars.js](https://github.com/w
     Swag = require('swag');
 
     Swag.registerHelpers(Handlebars);
+    
+    //Usage with express3-handlebars
+    exphbs = require('express3-handlebars);
+    hbs = exphbs.create({
+       handlebars: Handlebars //Pass the Handlebar instance with Swag
+    });
 
 ## Swag.registerHelpers
 This method will register all Swag helpers with the instance of Handlebars you pass to it.
@@ -628,6 +634,23 @@ Usage:
     {{round value}}
 
     6
+#### random
+
+Returns a random number within the provided limit.
+
+Parameters: 
+    
+    lower [int] - The lower limit for the random number. (Required)
+    upper [int] - The upper limit for the random number. (Required)
+
+Usage:
+    
+    lower = 10
+    upper = 50
+    
+    {{random lower upper}}
+
+    27
 
 ## Numbers
 
@@ -1141,7 +1164,23 @@ Usage:
     # Your template
     {{partial "planet_express" data template}}
 
+### PhotosetLayout
 
+Generates layout for [Photoset Grid](http://stylehatch.github.io/photoset-grid/) plugin to render Tumblr like image layouts.
+
+Parameters: 
+images[array] - An array of images for which the layout has to be generated. (Required)
+Eg: ["image1.jpg","image2.jpg","image3.jpg"]
+
+Usage:
+	```
+	 <div class="photoset-grid" data-layout="{{photoLayout images}}" style="visibility:;">
+		{{#unserialize images}}
+			<img src="/{{item}}" data-highres="/{{item}}">
+		{{/unserialize}}
+   	</div>
+   	```
+   	
 
 [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/elving/swag/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 
