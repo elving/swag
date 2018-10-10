@@ -1,14 +1,30 @@
 ###
-    Swag v0.6.1 <http://elving.github.com/swag/>
+    Swag v0.7.0 <http://elving.github.com/swag/>
     Copyright 2012 Elving Rodriguez <http://elving.me/>
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
 
-if window?
-    window.Swag = Swag = {}
+Swag = {}
 
+# Export Swag for CommonJS. If being loaded as an AMD module, define it as such.
+# Otherwise, just add `Swag` to the global object
+if exports?
+    if module? && module.exports?
+        exports = module.exports = Swag
+    exports.Swag = Swag
+else if define? && define.amd?
+    # Return the library as an AMD module:
+    define [], () ->
+        return Swag
+else if window?
+    # Otherwise expose Swag to the global object as usual
+    window.Swag = Swag
 else if module?
-    module.exports = Swag = {}
+    # Expose Swag as module.exports in loaders that implement the Node
+    # module pattern (including browserify). Do not create the global, since
+    # the user will be storing it themselves locally, and globals are frowned
+    # upon in the Node module world.
+    module.exports = Swag
 
 Swag.helpers = {}
 
