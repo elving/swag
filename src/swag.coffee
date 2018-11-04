@@ -4,11 +4,11 @@
     Available under MIT license <https://raw.github.com/elving/swag/master/LICENSE>
 ###
 
-if window?
-    window.Swag = Swag = {}
-
-else if module?
+if module?
     module.exports = Swag = {}
+
+else if window?
+    window.Swag = Swag = {}
 
 Swag.helpers = {}
 
@@ -38,7 +38,7 @@ Swag.registerHelpers = (localHandlebars) ->
             else
                 Swag.Handlebars = window.Handlebars
         else if module?
-            Swag.Handlebars = require 'handlebars'
+            Swag.Handlebars = require 'handlebars/runtime'
 
     Swag.registerHelper = (name, helper) ->
         if window? and window.Ember
