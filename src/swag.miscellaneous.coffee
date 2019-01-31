@@ -1,3 +1,8 @@
+Swag.addHelper 'setVar', (varName, value, context) ->
+  context.data[varName] = value
+, ['string', 'string', 'object']
+
+
 Swag.addHelper 'default', (value, defaultValue) ->
     value or defaultValue
 , 'safe:string|number', 'string|number'

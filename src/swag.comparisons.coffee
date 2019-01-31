@@ -29,3 +29,7 @@ Swag.addHelper 'or', (testA, testB, options) ->
 Swag.addHelper 'and', (testA, testB, options) ->
     if testA and testB then options.fn this else options.inverse this
 , ['safe:string|number', 'safe:string|number']
+
+Swag.addHelper 'ternary', (boolean, value1, value2) ->
+    if boolean then value1 else value2
+, ['boolean', 'object', 'object']

@@ -14,6 +14,15 @@ describe 'default', ->
 
             template(context).should.equal 'No title available.'
 
+describe 'setVar', ->
+    describe '{{ setVar "varName" "varValue" "this" }}', ->
+        it 'should return the value of the variable.', ->
+            source   = '{{setVar "bookingText" "book now." this }}{{bookingText}}'
+            template = Handlebars.compile(source)
+            context =
+                data: {}
+            template(context).should.equal 'book now.'
+
 Swag.Config.partialsPath = '../test/templates/'
 
 describe 'partial', ->
