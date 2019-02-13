@@ -1,4 +1,4 @@
-# Swag
+# Swag [![Build Status](https://travis-ci.org/elving/swag.svg?branch=master)](https://travis-ci.org/elving/swag)
 
 ![Project unmaintained](https://img.shields.io/badge/project-unmaintained-red.svg)
 

@@ -30,5 +30,8 @@
     }],
     "engine": {
         "node": ">=0.6.17"
+    },
+    "scripts": {
+        "test": "cake test"
     }
 }
