@@ -87,7 +87,7 @@ Usage:
 
 #### capitalizeFirst
 
-Capitalizes the firs word in a string.
+Capitalizes the first word in a string.
 
 Parameters: none.
 
