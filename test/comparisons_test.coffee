@@ -108,3 +108,12 @@ describe 'and', ->
             context  = great: yes, magnificent: yes
 
             template(context).should.equal 'Kiss my glorious metal ass!'
+
+describe 'modulo', ->
+    describe '{{#modulo n m}}true{{else}}false{{/modulo}}', ->
+        it 'should render a block if remainder is 0', ->
+            source   = '{{#modulo n m}}true{{else}}false{{/modulo}}'
+            template = Handlebars.compile(source)
+            context  = n: 0, m: 2
+
+            template(context).should.equal 'true'
