@@ -17,7 +17,7 @@ Swag.addHelper 'capitalizeEach', (str) ->
 Swag.addHelper 'titleize', (str) ->
     title = str.replace /[ \-_]+/g, ' '
     words = title.match(/\w+/g) || []
-    capitalize = (word) -> word.charAt(0).toUpperCase() + word.slice(1)
+    capitalize = (word) -> word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
     (capitalize word for word in words).join ' '
 , 'string'
 
